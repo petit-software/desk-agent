@@ -16,7 +16,7 @@ final class AppPreferences: ObservableObject {
     @Published var finishedDuration = 10.0
     @Published var showSimulatorAutomatically = true
     @Published var diagnosticLogging = false
-    @Published var displayTarget: DisplayTarget = .simulator
+    @Published var displayTarget: DisplayTarget = .automatic
     @Published var mirrorHorizontally = false
     @Published var rotation = 0
 }

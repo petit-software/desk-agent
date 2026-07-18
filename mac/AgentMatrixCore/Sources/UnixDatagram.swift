@@ -15,8 +15,8 @@ public enum UnixDatagramError: LocalizedError, Sendable {
 
     public var errorDescription: String? {
         switch self {
-        case .pathTooLong: "The local Agent Matrix socket path is too long."
-        case .foreignSocketOwner: "The local Agent Matrix socket belongs to another user."
+        case .pathTooLong: "The local DeskAgent socket path is too long."
+        case .foreignSocketOwner: "The local DeskAgent socket belongs to another user."
         case let .socketCreation(code): "Could not create local socket (errno \(code))."
         case let .bind(code): "Could not bind local socket (errno \(code))."
         }

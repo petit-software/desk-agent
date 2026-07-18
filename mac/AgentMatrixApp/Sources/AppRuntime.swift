@@ -6,6 +6,9 @@ import Foundation
 @MainActor
 final class AppRuntime: ObservableObject {
     let transport: SimulatorMatrixTransport
+    let serialTransport: SerialMatrixTransport
+    let matrixTransport: RuntimeMatrixTransport
+    let connectedDeviceTester: ConnectedDeviceTester
     let coordinator: MatrixCoordinator
     let preferences: AppPreferences
     @Published private(set) var integrationStatus: CodexIntegrationStatus = .notInstalled
@@ -13,13 +16,43 @@ final class AppRuntime: ObservableObject {
     private let eventServer = AgentEventServer()
     private let integrationInstaller = CodexIntegrationInstaller()
     private var started = false
+    private var displayTargetCancellable: AnyCancellable?
+    private var finishedDurationCancellable: AnyCancellable?
 
     init() {
         let transport = SimulatorMatrixTransport()
+        let serialTransport = SerialMatrixTransport()
+        let preferences = AppPreferences()
+        let matrixTransport = RuntimeMatrixTransport(
+            simulator: transport,
+            hardware: serialTransport,
+            target: Self.runtimeTarget(for: preferences.displayTarget)
+        )
         self.transport = transport
-        coordinator = MatrixCoordinator(transport: transport)
-        preferences = AppPreferences()
+        self.serialTransport = serialTransport
+        self.matrixTransport = matrixTransport
+        self.preferences = preferences
+        connectedDeviceTester = ConnectedDeviceTester(
+            transport: serialTransport,
+            runtimeTransport: matrixTransport,
+            managesHeartbeat: false
+        )
+        let coordinator = MatrixCoordinator(
+            transport: matrixTransport,
+            reducer: AgentStateReducer(finishedDuration: preferences.finishedDuration)
+        )
+        self.coordinator = coordinator
         integrationStatus = integrationInstaller.status()
+        displayTargetCancellable = preferences.$displayTarget
+            .removeDuplicates()
+            .sink { target in
+                Task { await matrixTransport.setTarget(Self.runtimeTarget(for: target)) }
+            }
+        finishedDurationCancellable = preferences.$finishedDuration
+            .removeDuplicates()
+            .sink { duration in
+                Task { await coordinator.setFinishedDuration(duration) }
+            }
     }
 
     func start() {
@@ -49,7 +82,7 @@ final class AppRuntime: ObservableObject {
         do {
             _ = try integrationInstaller.install(bundledHelperURL: helperURL)
             integrationStatus = .needsTrustReview
-            integrationMessage = "Run /hooks in Codex and review the Agent Matrix command."
+            integrationMessage = "Run /hooks in Codex and review the DeskAgent command."
         } catch {
             integrationStatus = integrationInstaller.status()
             integrationMessage = error.localizedDescription
@@ -63,6 +96,14 @@ final class AppRuntime: ObservableObject {
             integrationMessage = nil
         } catch {
             integrationMessage = error.localizedDescription
+        }
+    }
+
+    private static func runtimeTarget(for target: AppPreferences.DisplayTarget) -> RuntimeMatrixTarget {
+        switch target {
+        case .automatic: .automatic
+        case .hardware: .hardware
+        case .simulator: .simulator
         }
     }
 }

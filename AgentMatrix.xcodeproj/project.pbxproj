@@ -22,6 +22,7 @@
 		39738CC5CCD68957466BDA18 /* AgentMatrixProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BF896057B15E3B79CB0DFC6 /* GeneratedAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F84AEBA1B761AA3BA87C3 /* GeneratedAnimations.swift */; };
 		3CEBE506C9BD230BACEA4CDD /* AgentMatrixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA2899BA7A8D04A95DCB /* AgentMatrixApp.swift */; };
+		3DA89D4EADC5D4283FA589C1 /* SerialMatrixTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85522F87586F7A21998E8792 /* SerialMatrixTransport.swift */; };
 		3F589D051C17DCE6A4C258FF /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
 		45503CC480AD91DD0EB045CD /* SimulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F06B9B66917C36C6B11B7 /* SimulatorView.swift */; };
 		509F58788F2536485BFFF1E2 /* AgentStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92F99182DC91EFB55F0B4A /* AgentStateReducer.swift */; };
@@ -31,6 +32,7 @@
 		62ADF28B116EBC957F7E167E /* SimulatorMatrixTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27F39BF435D5FB0D7AB555 /* SimulatorMatrixTransport.swift */; };
 		63D7BB45D1B503749DDBCCF1 /* CodexIntegrationInstallerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4871464F1B8540204A0EA631 /* CodexIntegrationInstallerTests.swift */; };
 		6833B5B1D6FCFA4B6F87EC68 /* AgentStateReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B23FA9A20B13530AB4450E /* AgentStateReducerTests.swift */; };
+		691597A106C6456F70BD0A7F /* SerialMatrixTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFCA70EAACC65A00B7F4F55 /* SerialMatrixTransportTests.swift */; };
 		6FAC6B0F9ADE7A176B0ED734 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9AF8543F776A7E8840F3A0 /* GeneralSettingsView.swift */; };
 		7283A8126A2473DC9D98DD1B /* DisplaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BE644005D0C078CCE2CA5 /* DisplaySettingsView.swift */; };
 		7DB65DA5D30CDA33A4C9324C /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354370987E879E7E9311B4C /* MatrixProtocol.swift */; };
@@ -39,21 +41,28 @@
 		94A9EAA0BEFD64611DFDC6B2 /* AgentMatrixProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; };
 		98F6D6FF6BCF0A62102D1790 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC4F96E96FCCE7DF9B34FC /* OnboardingView.swift */; };
 		9AEB709FB57A2FAC540EFA46 /* FaultControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEFF7AEB477C3CF9C771F6 /* FaultControlsView.swift */; };
+		A447EB581A40F33D1D5F56CF /* ConnectedDeviceTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3FCFBCF44F66F4D623D114 /* ConnectedDeviceTester.swift */; };
+		A47F6AE6C51651EF8E3F103D /* RuntimeMatrixTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91888D32C63FCFF9AF41CEE8 /* RuntimeMatrixTransport.swift */; };
 		A486F8C18D0BE5F5891D89B3 /* CodexHookNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A21F80F03FBD40050178D23 /* CodexHookNormalizer.swift */; };
 		A8512DF050EE7CC2A6577316 /* DisplayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE68637071DFE330590859A2 /* DisplayModels.swift */; };
+		AEB12E7DB138CEAC63A9FEB5 /* DeskAgent.uf2 in Resources */ = {isa = PBXBuildFile; fileRef = DF25BD8859AF955D3019F725 /* DeskAgent.uf2 */; };
 		B941A9D17F40E3AC6EFF74C3 /* AgentMatrixSimulator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BAA898DC61610BDC55177F1F /* UnixDatagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0A39F2CE690E8F8217AA5 /* UnixDatagram.swift */; };
 		BDD98FD8AAC44D88D34C9869 /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
 		C12526A405A43E9FB910410D /* AppRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAF8D5C65DD55645B166F5 /* AppRuntime.swift */; };
 		C7452B4062EB8B3449FA8ADD /* StatePickerStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6E48BFD213D1FBC4910D99 /* StatePickerStrip.swift */; };
+		CA207EA3743C23748CEEFCEB /* RuntimeMatrixTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E839298BCB779B49B0B1CED /* RuntimeMatrixTransportTests.swift */; };
 		D6E69AE615B0CD20708C1683 /* AgentMatrixCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7A361681FA4065E308C01F0 /* AgentMatrixProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; };
 		DCB65F468AA764A7EBC50E94 /* AgentMatrixSimulator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDF28DD9BC256899303C756B /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875880F22F1D1DC36858532 /* AppPreferences.swift */; };
+		E2E1704C29534B32EFA4FA64 /* UF2FirmwareFlasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FACC59A15F864699CB7BC67 /* UF2FirmwareFlasherTests.swift */; };
+		E6D9C4B91B16828847137E61 /* UF2FirmwareFlasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A9E7A775E077C471147B1 /* UF2FirmwareFlasher.swift */; };
 		E76D6FDC58A6625734872321 /* AgentMatrixSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; };
 		EE6F23B1AE950B5EB68E0231 /* IntegrationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EE4143D240C77D067BF924 /* IntegrationSettingsView.swift */; };
 		EF02D0487F5985D384BE7510 /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
 		F62858EDB99E0B1055DB541A /* DeveloperSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */; };
+		F86B784EDA5B8407AF3D4ACD /* MatrixCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFDFF0F3625A6FF14873AD /* MatrixCoordinatorTests.swift */; };
 		FBCA8B3C95D8F0A02F9E11CD /* MatrixConnectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B391C027A16BAC1A45486 /* MatrixConnectionRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -160,7 +169,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		050613F2C35CB5C1333D247B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AD0A39F2CE690E8F8217AA5 /* UnixDatagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixDatagram.swift; sourceTree = "<group>"; };
+		0FACC59A15F864699CB7BC67 /* UF2FirmwareFlasherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UF2FirmwareFlasherTests.swift; sourceTree = "<group>"; };
+		16D66D30249D1C72DAD7EE5C /* ws2812.pio */ = {isa = PBXFileReference; path = ws2812.pio; sourceTree = "<group>"; };
 		1875880F22F1D1DC36858532 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 		1929243C3642B833F62BBDF9 /* AgentEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentEvent.swift; sourceTree = "<group>"; };
 		19A607B609F8B93FA710CFAB /* AgentMatrixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgentMatrixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,26 +187,35 @@
 		3A27F39BF435D5FB0D7AB555 /* SimulatorMatrixTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorMatrixTransport.swift; sourceTree = "<group>"; };
 		3AFC4A7699AD7833CA927DCB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4176BA2899BA7A8D04A95DCB /* AgentMatrixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentMatrixApp.swift; sourceTree = "<group>"; };
+		468A9E7A775E077C471147B1 /* UF2FirmwareFlasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UF2FirmwareFlasher.swift; sourceTree = "<group>"; };
 		4871464F1B8540204A0EA631 /* CodexIntegrationInstallerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexIntegrationInstallerTests.swift; sourceTree = "<group>"; };
 		618922F4210F3C97E86F68FD /* project.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = project.yml; sourceTree = "<group>"; };
+		63AFDFF0F3625A6FF14873AD /* MatrixCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixCoordinatorTests.swift; sourceTree = "<group>"; };
 		68E579D78033B280F0802355 /* AgentMatrixHook */ = {isa = PBXFileReference; includeInIndex = 0; path = AgentMatrixHook; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A21F80F03FBD40050178D23 /* CodexHookNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexHookNormalizer.swift; sourceTree = "<group>"; };
+		6A3FCFBCF44F66F4D623D114 /* ConnectedDeviceTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedDeviceTester.swift; sourceTree = "<group>"; };
 		6B0FCCA3CBF1C1353AB6B971 /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
 		6F3496D741C28116CC082005 /* AgentMatrixCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AgentMatrixCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F7D071D6657AEF96725CA2 /* implementation-plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "implementation-plan.md"; sourceTree = "<group>"; };
 		792A20FD6863CF092660C75C /* MatrixGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixGridView.swift; sourceTree = "<group>"; };
+		792DD8A6D6E1A4E622D39792 /* build-firmware.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-firmware.sh"; sourceTree = "<group>"; };
 		7C1F84AEBA1B761AA3BA87C3 /* GeneratedAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedAnimations.swift; sourceTree = "<group>"; };
+		85522F87586F7A21998E8792 /* SerialMatrixTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialMatrixTransport.swift; sourceTree = "<group>"; };
 		89DFC40C7638644FFDCE5513 /* ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
 		906164B9C4FAF4C517EF549B /* build-mac.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-mac.sh"; sourceTree = "<group>"; };
+		91888D32C63FCFF9AF41CEE8 /* RuntimeMatrixTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeMatrixTransport.swift; sourceTree = "<group>"; };
 		924BE644005D0C078CCE2CA5 /* DisplaySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsView.swift; sourceTree = "<group>"; };
 		93CD9BC1110C224A9E48DD1A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9E839298BCB779B49B0B1CED /* RuntimeMatrixTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeMatrixTransportTests.swift; sourceTree = "<group>"; };
 		A45D7257A60100D7D507E7CB /* animations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animations.json; sourceTree = "<group>"; };
+		A575B6AEF32DAD0221E855D9 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		A7B23FA9A20B13530AB4450E /* AgentStateReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStateReducerTests.swift; sourceTree = "<group>"; };
 		A81A365ED2826C955DA8D857 /* MatrixCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixCoordinator.swift; sourceTree = "<group>"; };
 		A927FC8630BCB3470D379552 /* AgentMatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgentMatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D5563D2D549A859CCE3C85 /* PRODUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRODUCT.md; sourceTree = "<group>"; };
 		B7EE4143D240C77D067BF924 /* IntegrationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationSettingsView.swift; sourceTree = "<group>"; };
 		B860F68C33A1C3681303A6AA /* .gitignore */ = {isa = PBXFileReference; path = .gitignore; sourceTree = "<group>"; };
+		BAFCA70EAACC65A00B7F4F55 /* SerialMatrixTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialMatrixTransportTests.swift; sourceTree = "<group>"; };
 		BDD45E67869DC99FBBEF3A4C /* CodexIntegrationInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexIntegrationInstaller.swift; sourceTree = "<group>"; };
 		BE4B391C027A16BAC1A45486 /* MatrixConnectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixConnectionRow.swift; sourceTree = "<group>"; };
 		C1ABD4E0877A9EC790308B02 /* generate-xcode-project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-xcode-project.sh"; sourceTree = "<group>"; };
@@ -202,8 +223,10 @@
 		CE217A21700AC4ABB1DC09A6 /* VirtualFirmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFirmware.swift; sourceTree = "<group>"; };
 		CEFD1BA21D0B7C5A1E3C50BF /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
 		CF6E48BFD213D1FBC4910D99 /* StatePickerStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePickerStrip.swift; sourceTree = "<group>"; };
+		D98FA0AF6019402CFED2AC53 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		D9A120B7007547DDA4F3B9FA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		DE68637071DFE330590859A2 /* DisplayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModels.swift; sourceTree = "<group>"; };
+		DF25BD8859AF955D3019F725 /* DeskAgent.uf2 */ = {isa = PBXFileReference; path = DeskAgent.uf2; sourceTree = "<group>"; };
 		DF9AF8543F776A7E8840F3A0 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AgentMatrixProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsView.swift; sourceTree = "<group>"; };
@@ -250,6 +273,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020F2451627648AC0B2BC21E /* artifacts */ = {
+			isa = PBXGroup;
+			children = (
+				DF25BD8859AF955D3019F725 /* DeskAgent.uf2 */,
+			);
+			path = artifacts;
+			sourceTree = "<group>";
+		};
 		023C5FC74EF38E323D909482 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +288,8 @@
 				6A21F80F03FBD40050178D23 /* CodexHookNormalizer.swift */,
 				BDD45E67869DC99FBBEF3A4C /* CodexIntegrationInstaller.swift */,
 				A81A365ED2826C955DA8D857 /* MatrixCoordinator.swift */,
+				85522F87586F7A21998E8792 /* SerialMatrixTransport.swift */,
+				468A9E7A775E077C471147B1 /* UF2FirmwareFlasher.swift */,
 				0AD0A39F2CE690E8F8217AA5 /* UnixDatagram.swift */,
 			);
 			path = Sources;
@@ -307,8 +340,21 @@
 		298CE77EB699617FDDD1D89C /* firmware */ = {
 			isa = PBXGroup;
 			children = (
+				020F2451627648AC0B2BC21E /* artifacts */,
+				41C233D8F3F21654C47BEFEF /* src */,
+				A575B6AEF32DAD0221E855D9 /* CMakeLists.txt */,
+				050613F2C35CB5C1333D247B /* README.md */,
 			);
 			path = firmware;
+			sourceTree = "<group>";
+		};
+		41C233D8F3F21654C47BEFEF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D98FA0AF6019402CFED2AC53 /* main.c */,
+				16D66D30249D1C72DAD7EE5C /* ws2812.pio */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		447F0552B570BF09B986EF42 /* AgentMatrixHook */ = {
@@ -343,8 +389,10 @@
 		4EB806A785FD782B4E93AC0F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6A3FCFBCF44F66F4D623D114 /* ConnectedDeviceTester.swift */,
 				25FEFF7AEB477C3CF9C771F6 /* FaultControlsView.swift */,
 				792A20FD6863CF092660C75C /* MatrixGridView.swift */,
+				91888D32C63FCFF9AF41CEE8 /* RuntimeMatrixTransport.swift */,
 				3A27F39BF435D5FB0D7AB555 /* SimulatorMatrixTransport.swift */,
 				1B7F06B9B66917C36C6B11B7 /* SimulatorView.swift */,
 				CF6E48BFD213D1FBC4910D99 /* StatePickerStrip.swift */,
@@ -372,7 +420,11 @@
 				A7B23FA9A20B13530AB4450E /* AgentStateReducerTests.swift */,
 				28ACDDF6EF9F7C166C1B3538 /* CodexHookNormalizerTests.swift */,
 				4871464F1B8540204A0EA631 /* CodexIntegrationInstallerTests.swift */,
+				63AFDFF0F3625A6FF14873AD /* MatrixCoordinatorTests.swift */,
 				89DFC40C7638644FFDCE5513 /* ProtocolTests.swift */,
+				9E839298BCB779B49B0B1CED /* RuntimeMatrixTransportTests.swift */,
+				BAFCA70EAACC65A00B7F4F55 /* SerialMatrixTransportTests.swift */,
+				0FACC59A15F864699CB7BC67 /* UF2FirmwareFlasherTests.swift */,
 				3912E37BA2671B1591FA776C /* VirtualFirmwareTests.swift */,
 			);
 			path = AgentMatrixTests;
@@ -381,6 +433,7 @@
 		76CBBCCBB9DC26878135A372 /* scripts */ = {
 			isa = PBXGroup;
 			children = (
+				792DD8A6D6E1A4E622D39792 /* build-firmware.sh */,
 				906164B9C4FAF4C517EF549B /* build-mac.sh */,
 				C1ABD4E0877A9EC790308B02 /* generate-xcode-project.sh */,
 			);
@@ -619,6 +672,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB12E7DB138CEAC63A9FEB5 /* DeskAgent.uf2 in Resources */,
 				8A9BE2E1FDAD8CB2A35764E9 /* AgentMatrixHook in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,8 +684,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A447EB581A40F33D1D5F56CF /* ConnectedDeviceTester.swift in Sources */,
 				9AEB709FB57A2FAC540EFA46 /* FaultControlsView.swift in Sources */,
 				0905720ACAA8155D0DC3D320 /* MatrixGridView.swift in Sources */,
+				A47F6AE6C51651EF8E3F103D /* RuntimeMatrixTransport.swift in Sources */,
 				62ADF28B116EBC957F7E167E /* SimulatorMatrixTransport.swift in Sources */,
 				45503CC480AD91DD0EB045CD /* SimulatorView.swift in Sources */,
 				C7452B4062EB8B3449FA8ADD /* StatePickerStrip.swift in Sources */,
@@ -664,7 +720,11 @@
 				6833B5B1D6FCFA4B6F87EC68 /* AgentStateReducerTests.swift in Sources */,
 				25C8A85F7E4415D77D6058BE /* CodexHookNormalizerTests.swift in Sources */,
 				63D7BB45D1B503749DDBCCF1 /* CodexIntegrationInstallerTests.swift in Sources */,
+				F86B784EDA5B8407AF3D4ACD /* MatrixCoordinatorTests.swift in Sources */,
 				02FDE2ED9C14489F80A61729 /* ProtocolTests.swift in Sources */,
+				CA207EA3743C23748CEEFCEB /* RuntimeMatrixTransportTests.swift in Sources */,
+				691597A106C6456F70BD0A7F /* SerialMatrixTransportTests.swift in Sources */,
+				E2E1704C29534B32EFA4FA64 /* UF2FirmwareFlasherTests.swift in Sources */,
 				576A9A725B94334813304F47 /* VirtualFirmwareTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +748,8 @@
 				A486F8C18D0BE5F5891D89B3 /* CodexHookNormalizer.swift in Sources */,
 				1DDACDE5501DEE1CEF8DD249 /* CodexIntegrationInstaller.swift in Sources */,
 				01963399F403EA8162D20A11 /* MatrixCoordinator.swift in Sources */,
+				3DA89D4EADC5D4283FA589C1 /* SerialMatrixTransport.swift in Sources */,
+				E6D9C4B91B16828847137E61 /* UF2FirmwareFlasher.swift in Sources */,
 				BAA898DC61610BDC55177F1F /* UnixDatagram.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -784,7 +846,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrix;
-				PRODUCT_NAME = "Agent Matrix";
+				PRODUCT_NAME = DeskAgent;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -817,7 +879,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrix;
-				PRODUCT_NAME = "Agent Matrix";
+				PRODUCT_NAME = DeskAgent;
 				SDKROOT = macosx;
 			};
 			name = Debug;

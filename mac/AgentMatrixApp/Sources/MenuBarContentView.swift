@@ -12,10 +12,10 @@ struct MenuBarContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                Text("Agent Matrix")
+                Text("DeskAgent")
                     .font(.headline)
                 Spacer()
-                Label(coordinator.displayState.title, systemImage: coordinator.displayState.symbolName)
+                Label(statusTitle, systemImage: statusSymbol)
                     .font(.caption.weight(.medium))
                     .foregroundStyle(stateColor)
             }
@@ -24,7 +24,7 @@ struct MenuBarContentView: View {
 
             MatrixConnectionRow(
                 connected: coordinator.isConnected,
-                title: coordinator.isConnected ? "Simulator active" : "Matrix disconnected",
+                title: connectionTitle,
                 detail: coordinator.connectionLabel
             )
 
@@ -53,6 +53,21 @@ struct MenuBarContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
 
+                Button {
+                    Task { await coordinator.setPaused(!coordinator.isPaused) }
+                } label: {
+                    Label(
+                        coordinator.isPaused ? "Resume Display" : "Pause Display",
+                        systemImage: coordinator.isPaused ? "play.fill" : "pause.fill"
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .help(
+                    coordinator.isPaused
+                        ? "Resume matrix updates"
+                        : "Turn off matrix lights while continuing to track Codex"
+                )
+
                 HStack {
                     Button {
                         Task {
@@ -68,12 +83,7 @@ struct MenuBarContentView: View {
                         Label("Setup", systemImage: "questionmark.circle")
                     }
                     Spacer()
-                    Button {
-                        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                    .help("Settings")
+                    settingsControl
                 }
             }
         }
@@ -86,19 +96,50 @@ struct MenuBarContentView: View {
         return URL(fileURLWithPath: path).lastPathComponent
     }
 
+    private var connectionTitle: String {
+        guard coordinator.isConnected else { return "Matrix disconnected" }
+        return coordinator.isUsingPhysicalDevice ? "Matrix connected" : "Simulator active"
+    }
+
+    @ViewBuilder
+    private var settingsControl: some View {
+        if #available(macOS 14.0, *) {
+            SettingsLink {
+                Image(systemName: "gearshape")
+            }
+            .help("Settings")
+        } else {
+            Button {
+                NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+            } label: {
+                Image(systemName: "gearshape")
+            }
+            .help("Settings")
+        }
+    }
+
     private var lastEventLabel: String {
         guard let event = coordinator.lastEvent else { return "Waiting for the first lifecycle event" }
         return "Last event: \(event.event.rawValue)"
     }
 
     private var stateColor: Color {
-        switch coordinator.displayState {
+        if coordinator.isPaused { return .secondary }
+        return switch coordinator.displayState {
         case .needsInput: .orange
         case .finished: .green
         case .error: .red
         case .working: .cyan
         default: .secondary
         }
+    }
+
+    private var statusTitle: String {
+        coordinator.isPaused ? "Paused" : coordinator.displayState.title
+    }
+
+    private var statusSymbol: String {
+        coordinator.isPaused ? "pause.circle.fill" : coordinator.displayState.symbolName
     }
 }
 

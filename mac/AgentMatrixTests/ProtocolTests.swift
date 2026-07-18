@@ -51,6 +51,20 @@ final class ProtocolTests: XCTestCase {
         }
     }
 
+    func testNeedsInputBlinksOnlyTheSeparatedDot() {
+        let animation = GeneratedAnimations.animation(for: .needsInput)
+        let amber = RGBPixel(red: 255, green: 120, blue: 0)
+
+        XCTAssertEqual(animation.frames.count, 2)
+        XCTAssertEqual(animation.frames.map(\.durationMilliseconds), [360, 360])
+        for stemIndex in [2, 7, 12] {
+            XCTAssertEqual(animation.frames[0].pixels[stemIndex], amber)
+            XCTAssertEqual(animation.frames[1].pixels[stemIndex], amber)
+        }
+        XCTAssertEqual(animation.frames[0].pixels[22], amber)
+        XCTAssertEqual(animation.frames[1].pixels[22], .off)
+    }
+
     private func rotateClockwise(_ pixels: [RGBPixel]) -> [RGBPixel] {
         (0..<5).flatMap { row in
             (0..<5).map { column in

@@ -58,7 +58,7 @@ public enum GeneratedAnimations {
         ], duration: 180),
         .needsInput: animation(rows: [
             ["00A00", "00A00", "00A00", "00000", "00A00"],
-            ["00000", "00A00", "00A00", "00000", "00A00"]
+            ["00A00", "00A00", "00A00", "00000", "00000"]
         ], duration: 360),
         .finished: animation(rows: [
             ["00000", "0000G", "G00G0", "0GG00", "00000"]

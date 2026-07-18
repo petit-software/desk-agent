@@ -17,7 +17,10 @@ fileGroups:
   - PRODUCT.md
   - README.md
   - docs
-  - firmware
+  - firmware/CMakeLists.txt
+  - firmware/README.md
+  - firmware/artifacts
+  - firmware/src
   - project.yml
   - shared
   - scripts
@@ -54,7 +57,10 @@ targets:
   AgentMatrixApp:
     type: application
     platform: macOS
-    sources: [mac/AgentMatrixApp/Sources]
+    sources:
+      - path: mac/AgentMatrixApp/Sources
+      - path: firmware/artifacts/DeskAgent.uf2
+        buildPhase: resources
     dependencies:
       - target: AgentMatrixHook
       - target: AgentMatrixProtocol
@@ -63,7 +69,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.AgentMatrix
-        PRODUCT_NAME: Agent Matrix
+        PRODUCT_NAME: DeskAgent
         INFOPLIST_KEY_LSUIElement: YES
         GENERATE_INFOPLIST_FILE: YES
   AgentMatrixHook:

@@ -14,7 +14,7 @@ struct OnboardingView: View {
     private let steps = [
         Step(
             title: "Agent status at a glance",
-            detail: "Agent Matrix reflects Codex lifecycle state on a simulated or physical 5x5 display.",
+            detail: "DeskAgent reflects Codex lifecycle state on a simulated or physical 5x5 display.",
             symbol: "square.grid.3x3.square"
         ),
         Step(
@@ -24,12 +24,12 @@ struct OnboardingView: View {
         ),
         Step(
             title: "Install the Codex integration",
-            detail: "Agent Matrix adds scoped lifecycle handlers to ~/.codex/hooks.json and preserves unrelated hooks.",
+            detail: "DeskAgent adds scoped lifecycle handlers to ~/.codex/hooks.json and preserves unrelated hooks.",
             symbol: "terminal"
         ),
         Step(
             title: "Review the hooks",
-            detail: "Run /hooks in Codex, inspect the Agent Matrix command, then trust it explicitly.",
+            detail: "Run /hooks in Codex, inspect the DeskAgent command, then trust it explicitly.",
             symbol: "checkmark.shield"
         ),
         Step(

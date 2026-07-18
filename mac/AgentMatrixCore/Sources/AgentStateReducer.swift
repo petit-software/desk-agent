@@ -36,10 +36,14 @@ public actor AgentStateReducer {
     private var seenEventIDs: Set<UUID> = []
     private var terminalEventTimes: [String: Int64] = [:]
     private var displayLevelError = false
-    private let finishedDuration: TimeInterval
+    private var finishedDuration: TimeInterval
 
     public init(finishedDuration: TimeInterval = 10) {
         self.finishedDuration = finishedDuration
+    }
+
+    public func setFinishedDuration(_ duration: TimeInterval) {
+        finishedDuration = max(0, duration)
     }
 
     @discardableResult

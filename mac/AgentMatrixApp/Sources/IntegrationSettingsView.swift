@@ -28,7 +28,7 @@ struct IntegrationSettingsView: View {
                     }
                 }
             } footer: {
-                Text(message ?? "After installation, open /hooks in Codex and review the Agent Matrix command before trusting it.")
+                Text(message ?? "After installation, open /hooks in Codex and review the DeskAgent command before trusting it.")
             }
         }
         .formStyle(.grouped)

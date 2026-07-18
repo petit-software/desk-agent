@@ -25,7 +25,7 @@ public enum CodexIntegrationError: LocalizedError, Sendable {
     public var errorDescription: String? {
         switch self {
         case .malformedConfiguration: "The existing hooks.json is malformed and was not changed."
-        case .bundledHelperMissing: "The bundled Agent Matrix hook helper is missing."
+        case .bundledHelperMissing: "The bundled DeskAgent hook helper is missing."
         case .helperInstallationFailed: "The hook helper could not be installed."
         }
     }

@@ -6,9 +6,10 @@ Agent Matrix is a privacy-minimal macOS menu-bar utility that maps coding-agent
 lifecycle events to a simulated or physical 5x5 RGB matrix. The simulator and
 physical device must consume the same semantic states and protocol contracts.
 
-The current repository implements the software vertical slice. Physical serial
-transport and Pico firmware are later phases described in
-`docs/implementation-plan.md`.
+The repository implements the software vertical slice, automatic USB serial
+routing with simulator fallback, protocol-gated connected-device testing, and
+bundled RP2040 firmware installation from the simulator. The original phase plan
+is retained in `docs/implementation-plan.md` for architecture context.
 
 ## Project Generation
 
@@ -28,14 +29,16 @@ transport and Pico firmware are later phases described in
   must not import app or simulator modules.
 - `AgentMatrixCore`: session reduction, aggregate state, matrix coordination,
   local IPC, hook normalization, and Codex configuration installation.
-- `AgentMatrixSimulator`: deterministic matrix rendering, virtual firmware, and
-  simulator transport. Protocol behavior belongs in `VirtualFirmware`, not in
-  SwiftUI animation callbacks.
+- `AgentMatrixSimulator`: deterministic matrix rendering, virtual firmware,
+  runtime transport routing, and connected-device tools. Protocol behavior
+  belongs in `VirtualFirmware`, not in SwiftUI animation callbacks.
 - `AgentMatrixApp`: scene composition, menu-bar UI, onboarding, settings, and
   app lifecycle wiring. Keep business logic in Core or Simulator.
 - `AgentMatrixHook`: standalone executable. It must not dynamically depend on
   project frameworks because it is copied outside the app bundle.
 - `AgentMatrixTests`: focused unit coverage for contracts and state behavior.
+- `firmware`: RP2040 AM1 implementation and WS2812 rendering. Keep its semantic
+  states aligned with `shared/animations.json` and `GeneratedAnimations.swift`.
 
 Do not introduce dependencies from lower-level modules back into the app.
 
@@ -63,6 +66,8 @@ Do not introduce dependencies from lower-level modules back into the app.
 - Preserve the firmware brightness ceiling of `64 / 255`; avoid sustained
   full-matrix white frames.
 - Add or update frame assertions in `ProtocolTests.swift` for animation changes.
+- Rebuild `firmware/artifacts/DeskAgent.uf2` with
+  `./scripts/build-firmware.sh` whenever firmware source changes.
 
 ## Privacy and Hook Safety
 
@@ -92,6 +97,12 @@ Run the macOS build and unit suite before committing:
 ./scripts/build-mac.sh
 ```
 
+Validate firmware changes with:
+
+```sh
+./scripts/build-firmware.sh
+```
+
 For unsigned local validation, use:
 
 ```sh
@@ -109,8 +120,8 @@ against the running app.
 
 ## Change Discipline
 
-- Keep changes scoped to the requested behavior; do not implement later hardware
-  phases incidentally.
+- Keep changes scoped to the requested behavior and preserve the shared protocol
+  contract across simulator and hardware paths.
 - Preserve current user work in a dirty worktree and stage explicit paths.
 - Update README or docs when behavior, setup, protocol, or phase status changes.
 - Do not commit build output, DerivedData, user Xcode state, local logs, or hook

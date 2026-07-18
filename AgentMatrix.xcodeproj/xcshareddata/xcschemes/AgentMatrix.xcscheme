@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "109182EF1CDE10679480B07F"
-               BuildableName = "Agent Matrix.app"
+               BuildableName = "DeskAgent.app"
                BlueprintName = "AgentMatrixApp"
                ReferencedContainer = "container:AgentMatrix.xcodeproj">
             </BuildableReference>
@@ -59,7 +59,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "109182EF1CDE10679480B07F"
-            BuildableName = "Agent Matrix.app"
+            BuildableName = "DeskAgent.app"
             BlueprintName = "AgentMatrixApp"
             ReferencedContainer = "container:AgentMatrix.xcodeproj">
          </BuildableReference>
@@ -93,7 +93,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "109182EF1CDE10679480B07F"
-            BuildableName = "Agent Matrix.app"
+            BuildableName = "DeskAgent.app"
             BlueprintName = "AgentMatrixApp"
             ReferencedContainer = "container:AgentMatrix.xcodeproj">
          </BuildableReference>
@@ -110,7 +110,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "109182EF1CDE10679480B07F"
-            BuildableName = "Agent Matrix.app"
+            BuildableName = "DeskAgent.app"
             BlueprintName = "AgentMatrixApp"
             ReferencedContainer = "container:AgentMatrix.xcodeproj">
          </BuildableReference>

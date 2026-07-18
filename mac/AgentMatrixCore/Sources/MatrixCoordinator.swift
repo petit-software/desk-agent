@@ -5,23 +5,39 @@ import Foundation
 @MainActor
 public final class MatrixCoordinator: ObservableObject {
     @Published public private(set) var displayState: DisplayState = .booting
-    @Published public private(set) var connectionLabel = "Starting simulator"
+    @Published public private(set) var connectionLabel = "Starting matrix connection"
     @Published public private(set) var isConnected = false
     @Published public private(set) var lastCommand = "AM1 HELLO"
-    @Published public private(set) var lastResponse = "Waiting for virtual device"
+    @Published public private(set) var lastResponse = "Waiting for matrix"
     @Published public private(set) var firmwareVersion = "-"
+    @Published public private(set) var hardwareID = "-"
     @Published public private(set) var lastEvent: NormalizedAgentEvent?
+    @Published public private(set) var isPaused = false
     @Published public var brightness: UInt8 = GeneratedAnimations.brightnessLimit
 
     public let reducer: AgentStateReducer
     private let transport: any MatrixTransport
+    private let heartbeatInterval: Duration
+    private let stateTTLMilliseconds: UInt32
     private var sequence: UInt32 = 0
     private var eventTask: Task<Void, Never>?
     private var heartbeatTask: Task<Void, Never>?
+    private var followsReducer = true
 
-    public init(transport: any MatrixTransport, reducer: AgentStateReducer = AgentStateReducer()) {
+    public init(
+        transport: any MatrixTransport,
+        reducer: AgentStateReducer = AgentStateReducer(),
+        heartbeatInterval: Duration = .seconds(2),
+        stateTTLMilliseconds: UInt32 = 8_000
+    ) {
         self.transport = transport
         self.reducer = reducer
+        self.heartbeatInterval = heartbeatInterval
+        self.stateTTLMilliseconds = stateTTLMilliseconds
+    }
+
+    public var isUsingPhysicalDevice: Bool {
+        isConnected && hardwareID != "-" && !hardwareID.hasPrefix("virtual-")
     }
 
     deinit {
@@ -40,9 +56,10 @@ public final class MatrixCoordinator: ObservableObject {
         Task { await transport.connect() }
         heartbeatTask = Task { [weak self] in
             while !Task.isCancelled {
-                try? await Task.sleep(for: .seconds(2))
+                guard let heartbeatInterval = self?.heartbeatInterval else { return }
+                try? await Task.sleep(for: heartbeatInterval)
                 guard let self, self.isConnected else { continue }
-                await self.sendHeartbeat()
+                await self.refreshStateLease()
             }
         }
     }
@@ -58,29 +75,73 @@ public final class MatrixCoordinator: ObservableObject {
     public func receive(_ event: NormalizedAgentEvent) async {
         let snapshot = await reducer.receive(event)
         lastEvent = event
-        await setDisplayState(snapshot.displayState)
+        await setReducedDisplayState(snapshot.displayState)
     }
 
     public func setDisplayState(_ state: DisplayState) async {
+        followsReducer = false
+        await applyDisplayState(state)
+    }
+
+    private func setReducedDisplayState(_ state: DisplayState) async {
+        followsReducer = true
+        await applyDisplayState(state)
+    }
+
+    private func applyDisplayState(_ state: DisplayState) async {
         displayState = state
-        guard isConnected else { return }
-        let command = MatrixCommand.state(sequence: nextSequence(), state: state, ttlMilliseconds: 8_000)
+        guard isConnected, !isPaused else { return }
+        let command = MatrixCommand.state(
+            sequence: nextSequence(),
+            state: state,
+            ttlMilliseconds: stateTTLMilliseconds
+        )
         await send(command)
+    }
+
+    public func setFinishedDuration(_ duration: TimeInterval) async {
+        await reducer.setFinishedDuration(duration)
     }
 
     public func updateBrightness(_ value: UInt8) async {
         brightness = min(value, GeneratedAnimations.brightnessLimit)
         guard isConnected else { return }
-        await send(.brightness(sequence: nextSequence(), value: brightness))
+        await send(.brightness(sequence: nextSequence(), value: isPaused ? 0 : brightness))
+    }
+
+    public func setPaused(_ paused: Bool) async {
+        guard paused != isPaused else { return }
+        isPaused = paused
+        guard isConnected else { return }
+
+        if paused {
+            await send(.brightness(sequence: nextSequence(), value: 0))
+        } else {
+            await send(.brightness(sequence: nextSequence(), value: brightness))
+            await refreshStateLease()
+        }
     }
 
     public func clearPresentationState() async {
         let snapshot = await reducer.clearPresentationState()
-        await setDisplayState(snapshot.displayState)
+        await setReducedDisplayState(snapshot.displayState)
     }
 
-    private func sendHeartbeat() async {
-        await send(.ping(sequence: nextSequence()))
+    private func refreshStateLease() async {
+        let state: DisplayState
+        if followsReducer {
+            let snapshot = await reducer.currentSnapshot()
+            state = snapshot.displayState
+        } else {
+            state = displayState
+        }
+
+        displayState = state
+        if isPaused {
+            await send(.brightness(sequence: nextSequence(), value: 0))
+        } else {
+            await applyDisplayState(state)
+        }
     }
 
     private func send(_ command: MatrixCommand) async {
@@ -90,7 +151,7 @@ public final class MatrixCoordinator: ObservableObject {
         } catch {
             lastResponse = error.localizedDescription
             isConnected = false
-            connectionLabel = "Simulator disconnected"
+            connectionLabel = "Matrix disconnected"
         }
     }
 
@@ -101,14 +162,18 @@ public final class MatrixCoordinator: ObservableObject {
         case let .connected(identity):
             isConnected = true
             firmwareVersion = identity.firmwareVersion
-            connectionLabel = "Simulator connected"
+            hardwareID = identity.hardwareID
+            connectionLabel = identity.hardwareID.hasPrefix("virtual-")
+                ? "Simulator fallback"
+                : "Physical matrix connected"
             Task {
                 await updateBrightness(brightness)
-                await setDisplayState(displayState == .booting ? .idle : displayState)
+                await applyDisplayState(displayState == .booting ? .idle : displayState)
             }
         case .disconnected:
             isConnected = false
-            connectionLabel = "Simulator disconnected"
+            hardwareID = "-"
+            connectionLabel = "Matrix disconnected"
         case let .response(response):
             lastResponse = response.wireValue
         case let .recoverableError(message), let .fatalError(message):

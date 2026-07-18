@@ -22,11 +22,15 @@ struct AgentMatrixApp: App {
         .menuBarExtraStyle(.window)
 
         Window("Matrix Simulator", id: "simulator") {
-            SimulatorView(coordinator: runtime.coordinator, transport: runtime.transport)
+            SimulatorView(
+                coordinator: runtime.coordinator,
+                transport: runtime.transport,
+                connectedDevice: runtime.connectedDeviceTester
+            )
         }
         .defaultSize(width: 920, height: 660)
 
-        Window("Agent Matrix Setup", id: "onboarding") {
+        Window("DeskAgent Setup", id: "onboarding") {
             OnboardingSceneContent(runtime: runtime)
         }
         .windowResizability(.contentSize)
@@ -41,8 +45,10 @@ private struct MenuBarLabel: View {
     @ObservedObject var coordinator: MatrixCoordinator
 
     var body: some View {
-        Image(systemName: coordinator.displayState.symbolName)
-            .accessibilityLabel("Agent Matrix, \(coordinator.displayState.title)")
+        Image(systemName: coordinator.isPaused ? "pause.circle.fill" : coordinator.displayState.symbolName)
+            .accessibilityLabel(
+                coordinator.isPaused ? "DeskAgent, Paused" : "DeskAgent, \(coordinator.displayState.title)"
+            )
     }
 }
 
