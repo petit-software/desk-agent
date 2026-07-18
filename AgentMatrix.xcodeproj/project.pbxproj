@@ -1,0 +1,1185 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01963399F403EA8162D20A11 /* MatrixCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81A365ED2826C955DA8D857 /* MatrixCoordinator.swift */; };
+		02FDE2ED9C14489F80A61729 /* ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFC40C7638644FFDCE5513 /* ProtocolTests.swift */; };
+		085FEAA7E35C6753394DC737 /* AgentMatrixProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; };
+		0905720ACAA8155D0DC3D320 /* MatrixGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A20FD6863CF092660C75C /* MatrixGridView.swift */; };
+		0B7E7648E34303052BEC0CA0 /* AgentMatrixCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0DAE3E9D342748986BC5D520 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A120B7007547DDA4F3B9FA /* main.swift */; };
+		111E55921E9BF9BEBF4CD690 /* AgentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1929243C3642B833F62BBDF9 /* AgentEvent.swift */; };
+		19205FD3F34E97FCFD7BFBB1 /* AgentMatrixSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; };
+		1DDACDE5501DEE1CEF8DD249 /* CodexIntegrationInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD45E67869DC99FBBEF3A4C /* CodexIntegrationInstaller.swift */; };
+		1E648AA0A3FDED2A3E6B18A2 /* AgentMatrixProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; };
+		25C8A85F7E4415D77D6058BE /* CodexHookNormalizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ACDDF6EF9F7C166C1B3538 /* CodexHookNormalizerTests.swift */; };
+		3619B303284A40A9BC0F17D2 /* AgentMatrixProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		39738CC5CCD68957466BDA18 /* AgentMatrixProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BF896057B15E3B79CB0DFC6 /* GeneratedAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F84AEBA1B761AA3BA87C3 /* GeneratedAnimations.swift */; };
+		3CEBE506C9BD230BACEA4CDD /* AgentMatrixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA2899BA7A8D04A95DCB /* AgentMatrixApp.swift */; };
+		3F589D051C17DCE6A4C258FF /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
+		45503CC480AD91DD0EB045CD /* SimulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F06B9B66917C36C6B11B7 /* SimulatorView.swift */; };
+		509F58788F2536485BFFF1E2 /* AgentStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92F99182DC91EFB55F0B4A /* AgentStateReducer.swift */; };
+		576A9A725B94334813304F47 /* VirtualFirmwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3912E37BA2671B1591FA776C /* VirtualFirmwareTests.swift */; };
+		58E97C926DEA4E82668EC4BB /* VirtualFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217A21700AC4ABB1DC09A6 /* VirtualFirmware.swift */; };
+		5C89BE10AB462FDEFABDF8D2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CD9BC1110C224A9E48DD1A /* SettingsView.swift */; };
+		62ADF28B116EBC957F7E167E /* SimulatorMatrixTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27F39BF435D5FB0D7AB555 /* SimulatorMatrixTransport.swift */; };
+		63D7BB45D1B503749DDBCCF1 /* CodexIntegrationInstallerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4871464F1B8540204A0EA631 /* CodexIntegrationInstallerTests.swift */; };
+		6833B5B1D6FCFA4B6F87EC68 /* AgentStateReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B23FA9A20B13530AB4450E /* AgentStateReducerTests.swift */; };
+		6FAC6B0F9ADE7A176B0ED734 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9AF8543F776A7E8840F3A0 /* GeneralSettingsView.swift */; };
+		7283A8126A2473DC9D98DD1B /* DisplaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BE644005D0C078CCE2CA5 /* DisplaySettingsView.swift */; };
+		7DB65DA5D30CDA33A4C9324C /* MatrixProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354370987E879E7E9311B4C /* MatrixProtocol.swift */; };
+		80067AF539FC399F3AB2CB2F /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD1BA21D0B7C5A1E3C50BF /* MenuBarContentView.swift */; };
+		8A9BE2E1FDAD8CB2A35764E9 /* AgentMatrixHook in Resources */ = {isa = PBXBuildFile; fileRef = 68E579D78033B280F0802355 /* AgentMatrixHook */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94A9EAA0BEFD64611DFDC6B2 /* AgentMatrixProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; };
+		98F6D6FF6BCF0A62102D1790 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC4F96E96FCCE7DF9B34FC /* OnboardingView.swift */; };
+		9AEB709FB57A2FAC540EFA46 /* FaultControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEFF7AEB477C3CF9C771F6 /* FaultControlsView.swift */; };
+		A486F8C18D0BE5F5891D89B3 /* CodexHookNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A21F80F03FBD40050178D23 /* CodexHookNormalizer.swift */; };
+		A8512DF050EE7CC2A6577316 /* DisplayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE68637071DFE330590859A2 /* DisplayModels.swift */; };
+		B941A9D17F40E3AC6EFF74C3 /* AgentMatrixSimulator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAA898DC61610BDC55177F1F /* UnixDatagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0A39F2CE690E8F8217AA5 /* UnixDatagram.swift */; };
+		BDD98FD8AAC44D88D34C9869 /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
+		C12526A405A43E9FB910410D /* AppRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAF8D5C65DD55645B166F5 /* AppRuntime.swift */; };
+		C7452B4062EB8B3449FA8ADD /* StatePickerStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6E48BFD213D1FBC4910D99 /* StatePickerStrip.swift */; };
+		D6E69AE615B0CD20708C1683 /* AgentMatrixCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7A361681FA4065E308C01F0 /* AgentMatrixProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */; };
+		DCB65F468AA764A7EBC50E94 /* AgentMatrixSimulator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDF28DD9BC256899303C756B /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875880F22F1D1DC36858532 /* AppPreferences.swift */; };
+		E76D6FDC58A6625734872321 /* AgentMatrixSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; };
+		EE6F23B1AE950B5EB68E0231 /* IntegrationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EE4143D240C77D067BF924 /* IntegrationSettingsView.swift */; };
+		EF02D0487F5985D384BE7510 /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
+		F62858EDB99E0B1055DB541A /* DeveloperSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */; };
+		FBCA8B3C95D8F0A02F9E11CD /* MatrixConnectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4B391C027A16BAC1A45486 /* MatrixConnectionRow.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24D234DCC3B67CC2F320FB15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D07CC7B10AE8A47E4BB64BB8;
+			remoteInfo = AgentMatrixProtocol;
+		};
+		317E8404F275800D7EEBC1AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D7951A1617C669672D198F;
+			remoteInfo = AgentMatrixSimulator;
+		};
+		36E8B8D20BF761DB001E178E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D07CC7B10AE8A47E4BB64BB8;
+			remoteInfo = AgentMatrixProtocol;
+		};
+		4034DF7C818228D19319B094 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D07CC7B10AE8A47E4BB64BB8;
+			remoteInfo = AgentMatrixProtocol;
+		};
+		40A8FAD14F5F8F82F7E9AB0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D7951A1617C669672D198F;
+			remoteInfo = AgentMatrixSimulator;
+		};
+		4F12A21E4F1CEC0FA2A2B425 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9BCEF1490057F015B0F900D;
+			remoteInfo = AgentMatrixCore;
+		};
+		65ABC48D5D28242F8C1A694C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF682F5969982DB4169FB31A;
+			remoteInfo = AgentMatrixHook;
+		};
+		82A1451A3273C5DF6EBB0C1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D07CC7B10AE8A47E4BB64BB8;
+			remoteInfo = AgentMatrixProtocol;
+		};
+		9A9DF189A4434E88FF5DF5BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9BCEF1490057F015B0F900D;
+			remoteInfo = AgentMatrixCore;
+		};
+		D2B62C4F54611691BFFDA149 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D385BF937BAD813156F1F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9BCEF1490057F015B0F900D;
+			remoteInfo = AgentMatrixCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7C32C83A3F1A8B972C72EFD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				39738CC5CCD68957466BDA18 /* AgentMatrixProtocol.framework in Embed Frameworks */,
+				0B7E7648E34303052BEC0CA0 /* AgentMatrixCore.framework in Embed Frameworks */,
+				B941A9D17F40E3AC6EFF74C3 /* AgentMatrixSimulator.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C476E2AC4143527E9CAF54D4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3619B303284A40A9BC0F17D2 /* AgentMatrixProtocol.framework in Embed Frameworks */,
+				D6E69AE615B0CD20708C1683 /* AgentMatrixCore.framework in Embed Frameworks */,
+				DCB65F468AA764A7EBC50E94 /* AgentMatrixSimulator.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0AD0A39F2CE690E8F8217AA5 /* UnixDatagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixDatagram.swift; sourceTree = "<group>"; };
+		1875880F22F1D1DC36858532 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
+		1929243C3642B833F62BBDF9 /* AgentEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentEvent.swift; sourceTree = "<group>"; };
+		19A607B609F8B93FA710CFAB /* AgentMatrixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgentMatrixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B7F06B9B66917C36C6B11B7 /* SimulatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorView.swift; sourceTree = "<group>"; };
+		1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AgentMatrixSimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2354370987E879E7E9311B4C /* MatrixProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProtocol.swift; sourceTree = "<group>"; };
+		25FEFF7AEB477C3CF9C771F6 /* FaultControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaultControlsView.swift; sourceTree = "<group>"; };
+		28ACDDF6EF9F7C166C1B3538 /* CodexHookNormalizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexHookNormalizerTests.swift; sourceTree = "<group>"; };
+		2C92F99182DC91EFB55F0B4A /* AgentStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStateReducer.swift; sourceTree = "<group>"; };
+		3912E37BA2671B1591FA776C /* VirtualFirmwareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFirmwareTests.swift; sourceTree = "<group>"; };
+		39CC4F96E96FCCE7DF9B34FC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		3A27F39BF435D5FB0D7AB555 /* SimulatorMatrixTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorMatrixTransport.swift; sourceTree = "<group>"; };
+		3AFC4A7699AD7833CA927DCB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4176BA2899BA7A8D04A95DCB /* AgentMatrixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentMatrixApp.swift; sourceTree = "<group>"; };
+		4871464F1B8540204A0EA631 /* CodexIntegrationInstallerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexIntegrationInstallerTests.swift; sourceTree = "<group>"; };
+		618922F4210F3C97E86F68FD /* project.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = project.yml; sourceTree = "<group>"; };
+		68E579D78033B280F0802355 /* AgentMatrixHook */ = {isa = PBXFileReference; includeInIndex = 0; path = AgentMatrixHook; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A21F80F03FBD40050178D23 /* CodexHookNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexHookNormalizer.swift; sourceTree = "<group>"; };
+		6B0FCCA3CBF1C1353AB6B971 /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
+		6F3496D741C28116CC082005 /* AgentMatrixCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AgentMatrixCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71F7D071D6657AEF96725CA2 /* implementation-plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "implementation-plan.md"; sourceTree = "<group>"; };
+		792A20FD6863CF092660C75C /* MatrixGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixGridView.swift; sourceTree = "<group>"; };
+		7C1F84AEBA1B761AA3BA87C3 /* GeneratedAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedAnimations.swift; sourceTree = "<group>"; };
+		89DFC40C7638644FFDCE5513 /* ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
+		906164B9C4FAF4C517EF549B /* build-mac.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-mac.sh"; sourceTree = "<group>"; };
+		924BE644005D0C078CCE2CA5 /* DisplaySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsView.swift; sourceTree = "<group>"; };
+		93CD9BC1110C224A9E48DD1A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A45D7257A60100D7D507E7CB /* animations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animations.json; sourceTree = "<group>"; };
+		A7B23FA9A20B13530AB4450E /* AgentStateReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStateReducerTests.swift; sourceTree = "<group>"; };
+		A81A365ED2826C955DA8D857 /* MatrixCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixCoordinator.swift; sourceTree = "<group>"; };
+		A927FC8630BCB3470D379552 /* AgentMatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgentMatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5D5563D2D549A859CCE3C85 /* PRODUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRODUCT.md; sourceTree = "<group>"; };
+		B7EE4143D240C77D067BF924 /* IntegrationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationSettingsView.swift; sourceTree = "<group>"; };
+		B860F68C33A1C3681303A6AA /* .gitignore */ = {isa = PBXFileReference; path = .gitignore; sourceTree = "<group>"; };
+		BDD45E67869DC99FBBEF3A4C /* CodexIntegrationInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexIntegrationInstaller.swift; sourceTree = "<group>"; };
+		BE4B391C027A16BAC1A45486 /* MatrixConnectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixConnectionRow.swift; sourceTree = "<group>"; };
+		C1ABD4E0877A9EC790308B02 /* generate-xcode-project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-xcode-project.sh"; sourceTree = "<group>"; };
+		CABAF8D5C65DD55645B166F5 /* AppRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRuntime.swift; sourceTree = "<group>"; };
+		CE217A21700AC4ABB1DC09A6 /* VirtualFirmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFirmware.swift; sourceTree = "<group>"; };
+		CEFD1BA21D0B7C5A1E3C50BF /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		CF6E48BFD213D1FBC4910D99 /* StatePickerStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePickerStrip.swift; sourceTree = "<group>"; };
+		D9A120B7007547DDA4F3B9FA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DE68637071DFE330590859A2 /* DisplayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModels.swift; sourceTree = "<group>"; };
+		DF9AF8543F776A7E8840F3A0 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AgentMatrixProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DC7E99370E951D727094540 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E648AA0A3FDED2A3E6B18A2 /* AgentMatrixProtocol.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E93C192C7C6FD5F4A04802C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7A361681FA4065E308C01F0 /* AgentMatrixProtocol.framework in Frameworks */,
+				BDD98FD8AAC44D88D34C9869 /* AgentMatrixCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85F4033EA6022BC4815B9DD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				085FEAA7E35C6753394DC737 /* AgentMatrixProtocol.framework in Frameworks */,
+				3F589D051C17DCE6A4C258FF /* AgentMatrixCore.framework in Frameworks */,
+				E76D6FDC58A6625734872321 /* AgentMatrixSimulator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E20647E2241916A00FC9B757 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A9EAA0BEFD64611DFDC6B2 /* AgentMatrixProtocol.framework in Frameworks */,
+				EF02D0487F5985D384BE7510 /* AgentMatrixCore.framework in Frameworks */,
+				19205FD3F34E97FCFD7BFBB1 /* AgentMatrixSimulator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		023C5FC74EF38E323D909482 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2C92F99182DC91EFB55F0B4A /* AgentStateReducer.swift */,
+				6A21F80F03FBD40050178D23 /* CodexHookNormalizer.swift */,
+				BDD45E67869DC99FBBEF3A4C /* CodexIntegrationInstaller.swift */,
+				A81A365ED2826C955DA8D857 /* MatrixCoordinator.swift */,
+				0AD0A39F2CE690E8F8217AA5 /* UnixDatagram.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		08532B374E50D74FF1026A30 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D9A120B7007547DDA4F3B9FA /* main.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		173121D3474C7D6F3EBCF205 /* AgentMatrixApp */ = {
+			isa = PBXGroup;
+			children = (
+				22B2D65BE5DE505345BCE12F /* Sources */,
+			);
+			path = AgentMatrixApp;
+			sourceTree = "<group>";
+		};
+		1A787DDBFD81A5D16E4B1111 /* AgentMatrixProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				8820DE6F251DC99FE3243667 /* Sources */,
+			);
+			path = AgentMatrixProtocol;
+			sourceTree = "<group>";
+		};
+		22B2D65BE5DE505345BCE12F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4176BA2899BA7A8D04A95DCB /* AgentMatrixApp.swift */,
+				1875880F22F1D1DC36858532 /* AppPreferences.swift */,
+				CABAF8D5C65DD55645B166F5 /* AppRuntime.swift */,
+				F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */,
+				924BE644005D0C078CCE2CA5 /* DisplaySettingsView.swift */,
+				DF9AF8543F776A7E8840F3A0 /* GeneralSettingsView.swift */,
+				B7EE4143D240C77D067BF924 /* IntegrationSettingsView.swift */,
+				BE4B391C027A16BAC1A45486 /* MatrixConnectionRow.swift */,
+				CEFD1BA21D0B7C5A1E3C50BF /* MenuBarContentView.swift */,
+				39CC4F96E96FCCE7DF9B34FC /* OnboardingView.swift */,
+				93CD9BC1110C224A9E48DD1A /* SettingsView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		298CE77EB699617FDDD1D89C /* firmware */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = firmware;
+			sourceTree = "<group>";
+		};
+		447F0552B570BF09B986EF42 /* AgentMatrixHook */ = {
+			isa = PBXGroup;
+			children = (
+				08532B374E50D74FF1026A30 /* Sources */,
+			);
+			path = AgentMatrixHook;
+			sourceTree = "<group>";
+		};
+		44EFEF069BFDDC026E7C539D /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				A45D7257A60100D7D507E7CB /* animations.json */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		4D545F71546FB79AB9F7C667 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19A607B609F8B93FA710CFAB /* AgentMatrixApp.app */,
+				6F3496D741C28116CC082005 /* AgentMatrixCore.framework */,
+				68E579D78033B280F0802355 /* AgentMatrixHook */,
+				E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */,
+				1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */,
+				A927FC8630BCB3470D379552 /* AgentMatrixTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EB806A785FD782B4E93AC0F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				25FEFF7AEB477C3CF9C771F6 /* FaultControlsView.swift */,
+				792A20FD6863CF092660C75C /* MatrixGridView.swift */,
+				3A27F39BF435D5FB0D7AB555 /* SimulatorMatrixTransport.swift */,
+				1B7F06B9B66917C36C6B11B7 /* SimulatorView.swift */,
+				CF6E48BFD213D1FBC4910D99 /* StatePickerStrip.swift */,
+				CE217A21700AC4ABB1DC09A6 /* VirtualFirmware.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		587E3525368C7FD71F7A4EA9 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				173121D3474C7D6F3EBCF205 /* AgentMatrixApp */,
+				D94341E3EC3A5E0E671BCCD2 /* AgentMatrixCore */,
+				447F0552B570BF09B986EF42 /* AgentMatrixHook */,
+				1A787DDBFD81A5D16E4B1111 /* AgentMatrixProtocol */,
+				CF2E3ED4BEF31BE32E749AC8 /* AgentMatrixSimulator */,
+				71F533E41375B13E5827326D /* AgentMatrixTests */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		71F533E41375B13E5827326D /* AgentMatrixTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7B23FA9A20B13530AB4450E /* AgentStateReducerTests.swift */,
+				28ACDDF6EF9F7C166C1B3538 /* CodexHookNormalizerTests.swift */,
+				4871464F1B8540204A0EA631 /* CodexIntegrationInstallerTests.swift */,
+				89DFC40C7638644FFDCE5513 /* ProtocolTests.swift */,
+				3912E37BA2671B1591FA776C /* VirtualFirmwareTests.swift */,
+			);
+			path = AgentMatrixTests;
+			sourceTree = "<group>";
+		};
+		76CBBCCBB9DC26878135A372 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				906164B9C4FAF4C517EF549B /* build-mac.sh */,
+				C1ABD4E0877A9EC790308B02 /* generate-xcode-project.sh */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		8001D795D3EFCCE166DADCBC /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				71F7D071D6657AEF96725CA2 /* implementation-plan.md */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		8820DE6F251DC99FE3243667 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1929243C3642B833F62BBDF9 /* AgentEvent.swift */,
+				DE68637071DFE330590859A2 /* DisplayModels.swift */,
+				7C1F84AEBA1B761AA3BA87C3 /* GeneratedAnimations.swift */,
+				2354370987E879E7E9311B4C /* MatrixProtocol.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		913BC18E078ED6F4C561C463 = {
+			isa = PBXGroup;
+			children = (
+				8001D795D3EFCCE166DADCBC /* docs */,
+				298CE77EB699617FDDD1D89C /* firmware */,
+				587E3525368C7FD71F7A4EA9 /* mac */,
+				76CBBCCBB9DC26878135A372 /* scripts */,
+				44EFEF069BFDDC026E7C539D /* shared */,
+				B860F68C33A1C3681303A6AA /* .gitignore */,
+				6B0FCCA3CBF1C1353AB6B971 /* AGENTS.md */,
+				B5D5563D2D549A859CCE3C85 /* PRODUCT.md */,
+				618922F4210F3C97E86F68FD /* project.yml */,
+				3AFC4A7699AD7833CA927DCB /* README.md */,
+				4D545F71546FB79AB9F7C667 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF2E3ED4BEF31BE32E749AC8 /* AgentMatrixSimulator */ = {
+			isa = PBXGroup;
+			children = (
+				4EB806A785FD782B4E93AC0F /* Sources */,
+			);
+			path = AgentMatrixSimulator;
+			sourceTree = "<group>";
+		};
+		D94341E3EC3A5E0E671BCCD2 /* AgentMatrixCore */ = {
+			isa = PBXGroup;
+			children = (
+				023C5FC74EF38E323D909482 /* Sources */,
+			);
+			path = AgentMatrixCore;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04D7951A1617C669672D198F /* AgentMatrixSimulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D596D3789B9BCB99514B2AA6 /* Build configuration list for PBXNativeTarget "AgentMatrixSimulator" */;
+			buildPhases = (
+				04CEFB459C09E95ADCDC22A6 /* Sources */,
+				5E93C192C7C6FD5F4A04802C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B0BECC13B6CA3FAB2618BC3 /* PBXTargetDependency */,
+				E48B3EAC980E66A7E948DAF1 /* PBXTargetDependency */,
+			);
+			name = AgentMatrixSimulator;
+			packageProductDependencies = (
+			);
+			productName = AgentMatrixSimulator;
+			productReference = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		109182EF1CDE10679480B07F /* AgentMatrixApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0940745EDE11BAE07CE880C /* Build configuration list for PBXNativeTarget "AgentMatrixApp" */;
+			buildPhases = (
+				605542D9BD3998370955A7BB /* Sources */,
+				20A69B41519581F3B17D05B2 /* Resources */,
+				85F4033EA6022BC4815B9DD4 /* Frameworks */,
+				C476E2AC4143527E9CAF54D4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C18122E72BCB3B875CF61AB /* PBXTargetDependency */,
+				F44EC6FC09F66E234F10018C /* PBXTargetDependency */,
+				B80306C077CDA2DFC02D0469 /* PBXTargetDependency */,
+				69C7288C0FED2BF29A508D33 /* PBXTargetDependency */,
+			);
+			name = AgentMatrixApp;
+			packageProductDependencies = (
+			);
+			productName = AgentMatrixApp;
+			productReference = 19A607B609F8B93FA710CFAB /* AgentMatrixApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E8A618082F17A5FDC3D0695 /* AgentMatrixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4580EF47475CD3D71F39A2E1 /* Build configuration list for PBXNativeTarget "AgentMatrixTests" */;
+			buildPhases = (
+				666FD5F3333057236F61BE1F /* Sources */,
+				E20647E2241916A00FC9B757 /* Frameworks */,
+				7C32C83A3F1A8B972C72EFD6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBF5FFEC76D4E6A4C558F772 /* PBXTargetDependency */,
+				68C89F6F54A20FDC49472E02 /* PBXTargetDependency */,
+				FDC44EB7CCA6FA98B33E3E9F /* PBXTargetDependency */,
+			);
+			name = AgentMatrixTests;
+			packageProductDependencies = (
+			);
+			productName = AgentMatrixTests;
+			productReference = A927FC8630BCB3470D379552 /* AgentMatrixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF682F5969982DB4169FB31A /* AgentMatrixHook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 329C8F43CDA7D4A6E8770FD1 /* Build configuration list for PBXNativeTarget "AgentMatrixHook" */;
+			buildPhases = (
+				F90020981C260023046D0105 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AgentMatrixHook;
+			packageProductDependencies = (
+			);
+			productName = AgentMatrixHook;
+			productReference = 68E579D78033B280F0802355 /* AgentMatrixHook */;
+			productType = "com.apple.product-type.tool";
+		};
+		D07CC7B10AE8A47E4BB64BB8 /* AgentMatrixProtocol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 819FB9D5C442A739CA1C507D /* Build configuration list for PBXNativeTarget "AgentMatrixProtocol" */;
+			buildPhases = (
+				728BEBECE66F087B1BA0E38B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AgentMatrixProtocol;
+			packageProductDependencies = (
+			);
+			productName = AgentMatrixProtocol;
+			productReference = E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F9BCEF1490057F015B0F900D /* AgentMatrixCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F9C5C9E2C0648DA2C3503D0 /* Build configuration list for PBXNativeTarget "AgentMatrixCore" */;
+			buildPhases = (
+				998B0FB454DBD70D0B92A2C6 /* Sources */,
+				3DC7E99370E951D727094540 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51ECBEFA4039D03A062AE129 /* PBXTargetDependency */,
+			);
+			name = AgentMatrixCore;
+			packageProductDependencies = (
+			);
+			productName = AgentMatrixCore;
+			productReference = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04D385BF937BAD813156F1F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					04D7951A1617C669672D198F = {
+						ProvisioningStyle = Automatic;
+					};
+					109182EF1CDE10679480B07F = {
+						ProvisioningStyle = Automatic;
+					};
+					5E8A618082F17A5FDC3D0695 = {
+						ProvisioningStyle = Automatic;
+					};
+					AF682F5969982DB4169FB31A = {
+						ProvisioningStyle = Automatic;
+					};
+					D07CC7B10AE8A47E4BB64BB8 = {
+						ProvisioningStyle = Automatic;
+					};
+					F9BCEF1490057F015B0F900D = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 55B0CB729ACEDFF2FB5F35A7 /* Build configuration list for PBXProject "AgentMatrix" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 913BC18E078ED6F4C561C463;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4D545F71546FB79AB9F7C667 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				109182EF1CDE10679480B07F /* AgentMatrixApp */,
+				F9BCEF1490057F015B0F900D /* AgentMatrixCore */,
+				AF682F5969982DB4169FB31A /* AgentMatrixHook */,
+				D07CC7B10AE8A47E4BB64BB8 /* AgentMatrixProtocol */,
+				04D7951A1617C669672D198F /* AgentMatrixSimulator */,
+				5E8A618082F17A5FDC3D0695 /* AgentMatrixTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20A69B41519581F3B17D05B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A9BE2E1FDAD8CB2A35764E9 /* AgentMatrixHook in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04CEFB459C09E95ADCDC22A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEB709FB57A2FAC540EFA46 /* FaultControlsView.swift in Sources */,
+				0905720ACAA8155D0DC3D320 /* MatrixGridView.swift in Sources */,
+				62ADF28B116EBC957F7E167E /* SimulatorMatrixTransport.swift in Sources */,
+				45503CC480AD91DD0EB045CD /* SimulatorView.swift in Sources */,
+				C7452B4062EB8B3449FA8ADD /* StatePickerStrip.swift in Sources */,
+				58E97C926DEA4E82668EC4BB /* VirtualFirmware.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		605542D9BD3998370955A7BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CEBE506C9BD230BACEA4CDD /* AgentMatrixApp.swift in Sources */,
+				DDF28DD9BC256899303C756B /* AppPreferences.swift in Sources */,
+				C12526A405A43E9FB910410D /* AppRuntime.swift in Sources */,
+				F62858EDB99E0B1055DB541A /* DeveloperSettingsView.swift in Sources */,
+				7283A8126A2473DC9D98DD1B /* DisplaySettingsView.swift in Sources */,
+				6FAC6B0F9ADE7A176B0ED734 /* GeneralSettingsView.swift in Sources */,
+				EE6F23B1AE950B5EB68E0231 /* IntegrationSettingsView.swift in Sources */,
+				FBCA8B3C95D8F0A02F9E11CD /* MatrixConnectionRow.swift in Sources */,
+				80067AF539FC399F3AB2CB2F /* MenuBarContentView.swift in Sources */,
+				98F6D6FF6BCF0A62102D1790 /* OnboardingView.swift in Sources */,
+				5C89BE10AB462FDEFABDF8D2 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		666FD5F3333057236F61BE1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6833B5B1D6FCFA4B6F87EC68 /* AgentStateReducerTests.swift in Sources */,
+				25C8A85F7E4415D77D6058BE /* CodexHookNormalizerTests.swift in Sources */,
+				63D7BB45D1B503749DDBCCF1 /* CodexIntegrationInstallerTests.swift in Sources */,
+				02FDE2ED9C14489F80A61729 /* ProtocolTests.swift in Sources */,
+				576A9A725B94334813304F47 /* VirtualFirmwareTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		728BEBECE66F087B1BA0E38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111E55921E9BF9BEBF4CD690 /* AgentEvent.swift in Sources */,
+				A8512DF050EE7CC2A6577316 /* DisplayModels.swift in Sources */,
+				3BF896057B15E3B79CB0DFC6 /* GeneratedAnimations.swift in Sources */,
+				7DB65DA5D30CDA33A4C9324C /* MatrixProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		998B0FB454DBD70D0B92A2C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				509F58788F2536485BFFF1E2 /* AgentStateReducer.swift in Sources */,
+				A486F8C18D0BE5F5891D89B3 /* CodexHookNormalizer.swift in Sources */,
+				1DDACDE5501DEE1CEF8DD249 /* CodexIntegrationInstaller.swift in Sources */,
+				01963399F403EA8162D20A11 /* MatrixCoordinator.swift in Sources */,
+				BAA898DC61610BDC55177F1F /* UnixDatagram.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90020981C260023046D0105 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DAE3E9D342748986BC5D520 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C18122E72BCB3B875CF61AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF682F5969982DB4169FB31A /* AgentMatrixHook */;
+			targetProxy = 65ABC48D5D28242F8C1A694C /* PBXContainerItemProxy */;
+		};
+		3B0BECC13B6CA3FAB2618BC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D07CC7B10AE8A47E4BB64BB8 /* AgentMatrixProtocol */;
+			targetProxy = 82A1451A3273C5DF6EBB0C1F /* PBXContainerItemProxy */;
+		};
+		51ECBEFA4039D03A062AE129 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D07CC7B10AE8A47E4BB64BB8 /* AgentMatrixProtocol */;
+			targetProxy = 4034DF7C818228D19319B094 /* PBXContainerItemProxy */;
+		};
+		68C89F6F54A20FDC49472E02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9BCEF1490057F015B0F900D /* AgentMatrixCore */;
+			targetProxy = 4F12A21E4F1CEC0FA2A2B425 /* PBXContainerItemProxy */;
+		};
+		69C7288C0FED2BF29A508D33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D7951A1617C669672D198F /* AgentMatrixSimulator */;
+			targetProxy = 317E8404F275800D7EEBC1AC /* PBXContainerItemProxy */;
+		};
+		B80306C077CDA2DFC02D0469 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9BCEF1490057F015B0F900D /* AgentMatrixCore */;
+			targetProxy = 9A9DF189A4434E88FF5DF5BD /* PBXContainerItemProxy */;
+		};
+		E48B3EAC980E66A7E948DAF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9BCEF1490057F015B0F900D /* AgentMatrixCore */;
+			targetProxy = D2B62C4F54611691BFFDA149 /* PBXContainerItemProxy */;
+		};
+		F44EC6FC09F66E234F10018C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D07CC7B10AE8A47E4BB64BB8 /* AgentMatrixProtocol */;
+			targetProxy = 36E8B8D20BF761DB001E178E /* PBXContainerItemProxy */;
+		};
+		FBF5FFEC76D4E6A4C558F772 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D07CC7B10AE8A47E4BB64BB8 /* AgentMatrixProtocol */;
+			targetProxy = 24D234DCC3B67CC2F320FB15 /* PBXContainerItemProxy */;
+		};
+		FDC44EB7CCA6FA98B33E3E9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D7951A1617C669672D198F /* AgentMatrixSimulator */;
+			targetProxy = 40A8FAD14F5F8F82F7E9AB0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		063CDC8FABAD04A4C9F1CC41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		116F98F2565C833867BDB909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrix;
+				PRODUCT_NAME = "Agent Matrix";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		14F99079BEA3FEF5CF96DCBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2182524396A1E771DF30DFD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrix;
+				PRODUCT_NAME = "Agent Matrix";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2A3DC20DE02C90E78590CEB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		31A63C11EEA08DD52116A26A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bartbak.agent-matrix-hook";
+				PRODUCT_NAME = "agent-matrix-hook";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4E462B91DEDE63BB5EE61ECF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixProtocol;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		737CC20C4CA91DFAA510703B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bartbak.agent-matrix-hook";
+				PRODUCT_NAME = "agent-matrix-hook";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8B0B94A22AD8F6CB6C2D4BD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		9E5014A81230DD999CD05530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		A367FE47AB1B8A99B66FFEA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixSimulator;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		A4166F77A2CC3AA8F58926AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		AE4E2AEB71C785029087F763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixProtocol;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		B54088848BBE22B340565495 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartbak.AgentMatrixSimulator;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F9C5C9E2C0648DA2C3503D0 /* Build configuration list for PBXNativeTarget "AgentMatrixCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4166F77A2CC3AA8F58926AC /* Debug */,
+				8B0B94A22AD8F6CB6C2D4BD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		329C8F43CDA7D4A6E8770FD1 /* Build configuration list for PBXNativeTarget "AgentMatrixHook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				737CC20C4CA91DFAA510703B /* Debug */,
+				31A63C11EEA08DD52116A26A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4580EF47475CD3D71F39A2E1 /* Build configuration list for PBXNativeTarget "AgentMatrixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				063CDC8FABAD04A4C9F1CC41 /* Debug */,
+				14F99079BEA3FEF5CF96DCBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		55B0CB729ACEDFF2FB5F35A7 /* Build configuration list for PBXProject "AgentMatrix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A3DC20DE02C90E78590CEB3 /* Debug */,
+				9E5014A81230DD999CD05530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		819FB9D5C442A739CA1C507D /* Build configuration list for PBXNativeTarget "AgentMatrixProtocol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE4E2AEB71C785029087F763 /* Debug */,
+				4E462B91DEDE63BB5EE61ECF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B0940745EDE11BAE07CE880C /* Build configuration list for PBXNativeTarget "AgentMatrixApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2182524396A1E771DF30DFD5 /* Debug */,
+				116F98F2565C833867BDB909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D596D3789B9BCB99514B2AA6 /* Build configuration list for PBXNativeTarget "AgentMatrixSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A367FE47AB1B8A99B66FFEA5 /* Debug */,
+				B54088848BBE22B340565495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04D385BF937BAD813156F1F4 /* Project object */;
+}

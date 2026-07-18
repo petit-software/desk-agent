@@ -1,0 +1,102 @@
+name: AgentMatrix
+options:
+  bundleIdPrefix: com.bartbak
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    SWIFT_STRICT_CONCURRENCY: targeted
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    CODE_SIGN_STYLE: Automatic
+fileGroups:
+  - .gitignore
+  - AGENTS.md
+  - PRODUCT.md
+  - README.md
+  - docs
+  - firmware
+  - project.yml
+  - shared
+  - scripts
+targets:
+  AgentMatrixProtocol:
+    type: framework
+    platform: macOS
+    sources: [mac/AgentMatrixProtocol/Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.AgentMatrixProtocol
+        GENERATE_INFOPLIST_FILE: YES
+  AgentMatrixCore:
+    type: framework
+    platform: macOS
+    sources: [mac/AgentMatrixCore/Sources]
+    dependencies:
+      - target: AgentMatrixProtocol
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.AgentMatrixCore
+        GENERATE_INFOPLIST_FILE: YES
+  AgentMatrixSimulator:
+    type: framework
+    platform: macOS
+    sources: [mac/AgentMatrixSimulator/Sources]
+    dependencies:
+      - target: AgentMatrixProtocol
+      - target: AgentMatrixCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.AgentMatrixSimulator
+        GENERATE_INFOPLIST_FILE: YES
+  AgentMatrixApp:
+    type: application
+    platform: macOS
+    sources: [mac/AgentMatrixApp/Sources]
+    dependencies:
+      - target: AgentMatrixHook
+      - target: AgentMatrixProtocol
+      - target: AgentMatrixCore
+      - target: AgentMatrixSimulator
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.AgentMatrix
+        PRODUCT_NAME: Agent Matrix
+        INFOPLIST_KEY_LSUIElement: YES
+        GENERATE_INFOPLIST_FILE: YES
+  AgentMatrixHook:
+    type: tool
+    platform: macOS
+    sources: [mac/AgentMatrixHook/Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.agent-matrix-hook
+        PRODUCT_NAME: agent-matrix-hook
+        GENERATE_INFOPLIST_FILE: YES
+  AgentMatrixTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [mac/AgentMatrixTests]
+    dependencies:
+      - target: AgentMatrixProtocol
+      - target: AgentMatrixCore
+      - target: AgentMatrixSimulator
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bartbak.AgentMatrixTests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  AgentMatrix:
+    build:
+      targets:
+        AgentMatrixApp: all
+        AgentMatrixHook: all
+        AgentMatrixTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - AgentMatrixTests
