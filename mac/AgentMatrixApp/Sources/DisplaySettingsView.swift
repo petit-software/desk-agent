@@ -28,9 +28,9 @@ struct DisplaySettingsView: View {
                         step: 1
                     )
                     .frame(width: 220)
-                    Text("\(coordinator.brightness)")
+                    Text("\(Int(coordinator.brightness) * 100 / Int(GeneratedAnimations.brightnessLimit))%")
                         .monospacedDigit()
-                        .frame(width: 24, alignment: .trailing)
+                        .frame(width: 40, alignment: .trailing)
                 }
                 Picker("Rotation", selection: $preferences.rotation) {
                     Text("0°").tag(0)

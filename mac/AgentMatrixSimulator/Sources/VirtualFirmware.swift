@@ -22,12 +22,13 @@ public actor VirtualFirmware {
     public static let hardwareID = "virtual-rp2040-matrix"
 
     private var state: DisplayState = .booting
-    private var brightness: UInt8 = 32
+    private var brightness: UInt8 = GeneratedAnimations.brightnessLimit
     private var lastHeartbeatAt: Date?
     private var heartbeatTTL: TimeInterval = 8
     private var lastSequence: UInt32 = 0
     private var connected = true
     private var bootedAt = Date()
+    private var automaticBootTransitionPending = true
     private var frozen = false
 
     public init() {}
@@ -36,13 +37,20 @@ public actor VirtualFirmware {
         guard connected, !frozen else { return nil }
         switch command {
         case .hello:
-            if state == .booting { state = .disconnected }
+            if state == .booting {
+                state = .disconnected
+                automaticBootTransitionPending = false
+            }
             return .ready(firmwareVersion: Self.firmwareVersion, hardwareID: Self.hardwareID)
         case let .state(sequence, newState, ttlMilliseconds):
             guard sequence != 0 else { return .error(sequence: 0, code: "INVALID_SEQUENCE") }
             if sequence != lastSequence {
                 state = newState
                 lastSequence = sequence
+                automaticBootTransitionPending = false
+                if newState == .booting {
+                    bootedAt = now
+                }
             }
             heartbeatTTL = TimeInterval(ttlMilliseconds) / 1_000
             lastHeartbeatAt = now
@@ -59,19 +67,22 @@ public actor VirtualFirmware {
             lastSequence = sequence
             state = .booting
             bootedAt = now
+            automaticBootTransitionPending = true
             return .acknowledgement(sequence: sequence)
         case let .resetState(sequence):
             lastSequence = sequence
             state = .idle
             lastHeartbeatAt = now
+            automaticBootTransitionPending = false
             return .acknowledgement(sequence: sequence)
         }
     }
 
     public func tick(at now: Date = Date()) {
         guard connected, !frozen else { return }
-        if state == .booting, now.timeIntervalSince(bootedAt) >= 1 {
+        if state == .booting, automaticBootTransitionPending, now.timeIntervalSince(bootedAt) >= 1 {
             state = lastHeartbeatAt == nil ? .disconnected : .idle
+            automaticBootTransitionPending = false
         }
         if let lastHeartbeatAt, now.timeIntervalSince(lastHeartbeatAt) >= heartbeatTTL {
             state = .disconnected
@@ -100,6 +111,7 @@ public actor VirtualFirmware {
         if isConnected {
             state = .booting
             bootedAt = Date()
+            automaticBootTransitionPending = true
         }
     }
 
@@ -114,11 +126,12 @@ public actor VirtualFirmware {
 
     public func reset() {
         state = .booting
-        brightness = 32
+        brightness = GeneratedAnimations.brightnessLimit
         lastHeartbeatAt = nil
         lastSequence = 0
         connected = true
         frozen = false
         bootedAt = Date()
+        automaticBootTransitionPending = true
     }
 }

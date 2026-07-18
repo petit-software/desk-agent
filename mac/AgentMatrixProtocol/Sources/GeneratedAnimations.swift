@@ -41,7 +41,7 @@ public enum GeneratedAnimations {
     ]
 
     private static let animations: [DisplayState: MatrixAnimation] = [
-        .booting: rowSweep(colors: ["W", "B", "C", "A", "G", "R"], duration: 120),
+        .booting: cumulativeRowFill(color: "W", duration: 150),
         .disconnected: animation(rows: [
             ["00000", "00000", "00d00", "00000", "00000"]
         ], duration: 1_000),
@@ -82,16 +82,26 @@ public enum GeneratedAnimations {
         animation(rows: rows.map { $0.map(Array.init) }, duration: duration, loops: loops)
     }
 
-    private static func rowSweep(colors: [Character], duration: Int) -> MatrixAnimation {
-        MatrixAnimation(
-            frames: colors.flatMap { symbol in
-                (0..<5).map { activeRow in
-                    let pixels = (0..<MatrixFrame.pixelCount).map { index in
-                        index / 5 == activeRow ? palette[symbol] ?? .off : .off
-                    }
-                    return MatrixFrame(pixels: pixels, durationMilliseconds: duration)
-                }
-            },
+    private static func cumulativeRowFill(color: Character, duration: Int) -> MatrixAnimation {
+        let fillingFrames = (1...5).map { visibleRows in
+            MatrixFrame(
+                pixels: (0..<MatrixFrame.pixelCount).map { index in
+                    index / 5 < visibleRows ? palette[color] ?? .off : .off
+                },
+                durationMilliseconds: duration
+            )
+        }
+        let clearingFrames = (1...5).map { removedRows in
+            MatrixFrame(
+                pixels: (0..<MatrixFrame.pixelCount).map { index in
+                    index / 5 >= removedRows ? palette[color] ?? .off : .off
+                },
+                durationMilliseconds: duration
+            )
+        }
+
+        return MatrixAnimation(
+            frames: fillingFrames + clearingFrames,
             loops: true
         )
     }

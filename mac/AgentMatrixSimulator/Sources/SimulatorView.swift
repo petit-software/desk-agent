@@ -55,7 +55,10 @@ public struct SimulatorView: View {
                 Grid(alignment: .leading, horizontalSpacing: 18, verticalSpacing: 9) {
                     diagnosticRow("Connection", coordinator.connectionLabel)
                     diagnosticRow("Firmware", coordinator.firmwareVersion)
-                    diagnosticRow("Brightness", "\(coordinator.brightness) / 64")
+                    diagnosticRow(
+                        "Brightness",
+                        "\(Int(coordinator.brightness) * 100 / Int(GeneratedAnimations.brightnessLimit))%"
+                    )
                     diagnosticRow("Heartbeat age", heartbeatLabel)
                     diagnosticRow("Last command", coordinator.lastCommand)
                     diagnosticRow("Last response", coordinator.lastResponse)

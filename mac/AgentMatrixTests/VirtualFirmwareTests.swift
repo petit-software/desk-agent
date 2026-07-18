@@ -25,9 +25,37 @@ final class VirtualFirmwareTests: XCTestCase {
 
     func testBrightnessIsClampedByFirmware() async {
         let firmware = VirtualFirmware()
+        var snapshot = await firmware.snapshot()
+        XCTAssertEqual(snapshot.brightness, GeneratedAnimations.brightnessLimit)
+
         _ = await firmware.receive(.hello)
         _ = await firmware.receive(.brightness(sequence: 1, value: 255))
-        let snapshot = await firmware.snapshot()
+        snapshot = await firmware.snapshot()
         XCTAssertEqual(snapshot.brightness, GeneratedAnimations.brightnessLimit)
+    }
+
+    func testManuallySelectedBootingStateRemainsAvailableForPreview() async {
+        let firmware = VirtualFirmware()
+        let base = Date(timeIntervalSince1970: 100)
+
+        _ = await firmware.receive(.hello, at: base)
+        _ = await firmware.receive(
+            .state(sequence: 1, state: .booting, ttlMilliseconds: 8_000),
+            at: base
+        )
+
+        let snapshot = await firmware.snapshot(at: base.addingTimeInterval(5))
+        XCTAssertEqual(snapshot.state, .booting)
+    }
+
+    func testIdentifyBootingStateStillCompletesAutomatically() async {
+        let firmware = VirtualFirmware()
+        let base = Date(timeIntervalSince1970: 100)
+
+        _ = await firmware.receive(.hello, at: base)
+        _ = await firmware.receive(.identify(sequence: 1), at: base)
+
+        let snapshot = await firmware.snapshot(at: base.addingTimeInterval(1.1))
+        XCTAssertEqual(snapshot.state, .disconnected)
     }
 }

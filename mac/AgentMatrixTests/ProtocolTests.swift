@@ -36,24 +36,17 @@ final class ProtocolTests: XCTestCase {
         }
     }
 
-    func testBootingAnimationSweepsEveryRowInEveryVisibleColor() {
+    func testBootingAnimationFillsAndClearsRowsCumulatively() {
         let animation = GeneratedAnimations.animation(for: .booting)
-        let colors = [
-            RGBPixel(red: 255, green: 255, blue: 255),
-            RGBPixel(red: 0, green: 120, blue: 255),
-            RGBPixel(red: 0, green: 220, blue: 255),
-            RGBPixel(red: 255, green: 120, blue: 0),
-            RGBPixel(red: 0, green: 255, blue: 80),
-            RGBPixel(red: 255, green: 0, blue: 0)
-        ]
+        let white = RGBPixel(red: 255, green: 255, blue: 255)
 
-        XCTAssertEqual(animation.frames.count, colors.count * 5)
+        XCTAssertEqual(animation.frames.count, 10)
         for (index, frame) in animation.frames.enumerated() {
-            let activeRow = index % 5
-            let color = colors[index / 5]
-            XCTAssertEqual(frame.durationMilliseconds, 120)
+            XCTAssertEqual(frame.durationMilliseconds, 150)
             for pixelIndex in frame.pixels.indices {
-                XCTAssertEqual(frame.pixels[pixelIndex], pixelIndex / 5 == activeRow ? color : .off)
+                let row = pixelIndex / 5
+                let isLit = index < 5 ? row <= index : row >= index - 4
+                XCTAssertEqual(frame.pixels[pixelIndex], isLit ? white : .off)
             }
         }
     }

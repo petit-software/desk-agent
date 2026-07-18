@@ -11,7 +11,7 @@ public final class MatrixCoordinator: ObservableObject {
     @Published public private(set) var lastResponse = "Waiting for virtual device"
     @Published public private(set) var firmwareVersion = "-"
     @Published public private(set) var lastEvent: NormalizedAgentEvent?
-    @Published public var brightness: UInt8 = 32
+    @Published public var brightness: UInt8 = GeneratedAnimations.brightnessLimit
 
     public let reducer: AgentStateReducer
     private let transport: any MatrixTransport
