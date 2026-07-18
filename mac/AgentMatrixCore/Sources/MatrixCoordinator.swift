@@ -87,6 +87,11 @@ public final class MatrixCoordinator: ObservableObject {
         await applyDisplayState(state)
     }
 
+    public func endDisplayStateTest() async {
+        let snapshot = await reducer.currentSnapshot()
+        await setReducedDisplayState(snapshot.displayState)
+    }
+
     private func setReducedDisplayState(_ state: DisplayState) async {
         followsReducer = true
         await applyDisplayState(state)

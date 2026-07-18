@@ -59,6 +59,7 @@
 		E2E1704C29534B32EFA4FA64 /* UF2FirmwareFlasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FACC59A15F864699CB7BC67 /* UF2FirmwareFlasherTests.swift */; };
 		E6D9C4B91B16828847137E61 /* UF2FirmwareFlasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A9E7A775E077C471147B1 /* UF2FirmwareFlasher.swift */; };
 		E76D6FDC58A6625734872321 /* AgentMatrixSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBFCB467E05871FA6DF3378 /* AgentMatrixSimulator.framework */; };
+		EC201F4854D9E069194F9E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C49EC42521D131222FEF16 /* Assets.xcassets */; };
 		EE6F23B1AE950B5EB68E0231 /* IntegrationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EE4143D240C77D067BF924 /* IntegrationSettingsView.swift */; };
 		EF02D0487F5985D384BE7510 /* AgentMatrixCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3496D741C28116CC082005 /* AgentMatrixCore.framework */; };
 		F62858EDB99E0B1055DB541A /* DeveloperSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */; };
@@ -229,6 +230,7 @@
 		DF25BD8859AF955D3019F725 /* DeskAgent.uf2 */ = {isa = PBXFileReference; path = DeskAgent.uf2; sourceTree = "<group>"; };
 		DF9AF8543F776A7E8840F3A0 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		E00D954C0D3B679B3DB5F0BA /* AgentMatrixProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AgentMatrixProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C49EC42521D131222FEF16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5BC9AA8F4D09029D914B225 /* DeveloperSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -306,6 +308,7 @@
 		173121D3474C7D6F3EBCF205 /* AgentMatrixApp */ = {
 			isa = PBXGroup;
 			children = (
+				6ECC95F81A139E6F4B93F957 /* Resources */,
 				22B2D65BE5DE505345BCE12F /* Sources */,
 			);
 			path = AgentMatrixApp;
@@ -412,6 +415,14 @@
 				71F533E41375B13E5827326D /* AgentMatrixTests */,
 			);
 			path = mac;
+			sourceTree = "<group>";
+		};
+		6ECC95F81A139E6F4B93F957 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F1C49EC42521D131222FEF16 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		71F533E41375B13E5827326D /* AgentMatrixTests */ = {
@@ -624,21 +635,27 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					04D7951A1617C669672D198F = {
+						DevelopmentTeam = TJ3ALYQV5G;
 						ProvisioningStyle = Automatic;
 					};
 					109182EF1CDE10679480B07F = {
+						DevelopmentTeam = TJ3ALYQV5G;
 						ProvisioningStyle = Automatic;
 					};
 					5E8A618082F17A5FDC3D0695 = {
+						DevelopmentTeam = TJ3ALYQV5G;
 						ProvisioningStyle = Automatic;
 					};
 					AF682F5969982DB4169FB31A = {
+						DevelopmentTeam = TJ3ALYQV5G;
 						ProvisioningStyle = Automatic;
 					};
 					D07CC7B10AE8A47E4BB64BB8 = {
+						DevelopmentTeam = TJ3ALYQV5G;
 						ProvisioningStyle = Automatic;
 					};
 					F9BCEF1490057F015B0F900D = {
+						DevelopmentTeam = TJ3ALYQV5G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -672,6 +689,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC201F4854D9E069194F9E84 /* Assets.xcassets in Resources */,
 				AEB12E7DB138CEAC63A9FEB5 /* DeskAgent.uf2 in Resources */,
 				8A9BE2E1FDAD8CB2A35764E9 /* AgentMatrixHook in Resources */,
 			);
@@ -839,6 +857,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -872,6 +891,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -919,7 +939,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TJ3ALYQV5G;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -937,6 +959,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -953,6 +976,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -991,6 +1015,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1060,7 +1085,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TJ3ALYQV5G;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1072,6 +1099,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

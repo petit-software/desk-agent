@@ -41,6 +41,26 @@ final class MatrixCoordinatorTests: XCTestCase {
         coordinator.stop()
     }
 
+    func testEndingDisplayStateTestRestoresCurrentReducerState() async {
+        let coordinator = MatrixCoordinator(transport: RecordingMatrixTransport())
+        let startedAt = Int64(Date().timeIntervalSince1970 * 1_000)
+
+        await coordinator.receive(NormalizedAgentEvent(
+            source: .codex,
+            event: .turnStarted,
+            sessionID: "session",
+            turnID: "turn",
+            sentAtUnixMilliseconds: startedAt,
+            eventInstanceID: UUID()
+        ))
+        await coordinator.setDisplayState(.error)
+        XCTAssertEqual(coordinator.displayState, .error)
+
+        await coordinator.endDisplayStateTest()
+
+        XCTAssertEqual(coordinator.displayState, .working)
+    }
+
     func testFinishedStateExpiresThroughLeaseRefresh() async {
         let transport = RecordingMatrixTransport()
         let reducer = AgentStateReducer(finishedDuration: 0.12)

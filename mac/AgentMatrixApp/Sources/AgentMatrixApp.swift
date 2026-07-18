@@ -1,6 +1,7 @@
 import AgentMatrixCore
 import AgentMatrixProtocol
 import AgentMatrixSimulator
+import AppKit
 import SwiftUI
 
 @main
@@ -42,10 +43,18 @@ struct AgentMatrixApp: App {
 }
 
 private struct MenuBarLabel: View {
+    private static let icon: NSImage = {
+        let image = (NSImage(named: "SystemBarIcon")?.copy() as? NSImage)
+            ?? NSImage(size: NSSize(width: 14, height: 14))
+        image.size = NSSize(width: 14, height: 14)
+        image.isTemplate = true
+        return image
+    }()
+
     @ObservedObject var coordinator: MatrixCoordinator
 
     var body: some View {
-        Image(systemName: coordinator.isPaused ? "pause.circle.fill" : coordinator.displayState.symbolName)
+        Image(nsImage: Self.icon)
             .accessibilityLabel(
                 coordinator.isPaused ? "DeskAgent, Paused" : "DeskAgent, \(coordinator.displayState.title)"
             )

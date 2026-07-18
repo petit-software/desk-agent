@@ -54,10 +54,16 @@ static const char *idle_frames[] = {
 };
 
 static const char *working_frames[] = {
-    "00C00C0C0C0CBC00C0C0C000C",
-    "C00C00CC0000BCC0CC00C00C0",
-    "C000C0C0C00CBC0C0C0C00C00",
-    "0C00C00CC0CCB0000CC00C00C",
+    "B0000B0000B0000B0000B0000",
+    "BB000BB000BB000BB000BB000",
+    "BBB00BBB00BBB00BBB00BBB00",
+    "BBBB0BBBB0BBBB0BBBB0BBBB0",
+    "BBBBBBBBBBBBBBBBBBBBBBBBB",
+    "0BBBB0BBBB0BBBB0BBBB0BBBB",
+    "00BBB00BBB00BBB00BBB00BBB",
+    "000BB000BB000BB000BB000BB",
+    "0000B0000B0000B0000B0000B",
+    "0000000000000000000000000",
 };
 
 static const char *needs_input_frames[] = {
@@ -187,7 +193,7 @@ static void process_command(char *line, uint32_t now_ms) {
     if (strcmp(line, "AM1 HELLO") == 0) {
         pico_unique_board_id_t board_id;
         pico_get_unique_board_id(&board_id);
-        printf("AM1 READY 0.1.3 waveshare-rp2040-matrix-");
+        printf("AM1 READY 0.1.4 waveshare-rp2040-matrix-");
         for (size_t index = 0; index < PICO_UNIQUE_BOARD_ID_SIZE_BYTES; ++index) {
             printf("%02x", board_id.id[index]);
         }
@@ -208,8 +214,10 @@ static void process_command(char *line, uint32_t now_ms) {
             stdio_flush();
             return;
         }
-        display_state = requested_state;
-        state_started_ms = now_ms;
+        if (display_state != requested_state) {
+            display_state = requested_state;
+            state_started_ms = now_ms;
+        }
         state_deadline_ms = now_ms + (uint32_t)value;
         identify_deadline_ms = 0;
         host_seen = true;

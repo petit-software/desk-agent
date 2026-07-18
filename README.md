@@ -44,7 +44,7 @@ and verifying the protocol.
 | Booting | White rows fill cumulatively, then clear from top to bottom |
 | Disconnected | Dim white center pixel |
 | Idle | Breathing cyan center pattern |
-| Working | Blue and cyan star rotating clockwise |
+| Working | Blue columns fill left to right, then clear left to right |
 | Needs Input | Pulsing amber exclamation mark |
 | Finished | Green checkmark |
 | Error | Pulsing red X |

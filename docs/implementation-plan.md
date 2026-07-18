@@ -149,7 +149,7 @@ The display has seven states:
 | `booting` | White dot expands from center | Firmware is starting |
 | `disconnected` | Very dim white center dot | Board is powered but no Mac heartbeat is present |
 | `idle` | Slow breathing cyan center dot | App and board are connected; no active turn |
-| `working` | Blue/cyan light moves around perimeter | Agent is processing or using tools |
+| `working` | Blue columns fill left to right, then clear left to right | Agent is processing or using tools |
 | `needsInput` | Pulsing amber exclamation or pause glyph | Approval or user input is required |
 | `finished` | Green checkmark, then fade | Agent turn completed |
 | `error` | Red X with restrained pulse | Integration, transport, or explicitly detected agent error |
@@ -161,7 +161,7 @@ Mac heartbeat interval:       2 seconds
 Firmware heartbeat timeout:  8 seconds
 Finished display duration:   10 seconds
 Error display duration:      Until next turn or manual clear
-Working animation rate:      8 keyframes per second
+Working animation step:      180 milliseconds per column
 Render loop:                 30 frames per second
 ```
 

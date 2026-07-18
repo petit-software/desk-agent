@@ -22,6 +22,9 @@ struct SettingsView: View {
                 .tabItem { Label("Developer", systemImage: "hammer") }
         }
         .frame(width: 560, height: 460)
+        .onDisappear {
+            Task { await runtime.coordinator.endDisplayStateTest() }
+        }
     }
 }
 

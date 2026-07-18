@@ -34,13 +34,19 @@ final class ProtocolTests: XCTestCase {
         }
     }
 
-    func testWorkingAnimationUsesRotatingStarFrames() {
+    func testWorkingAnimationFillsAndClearsBlueColumnsFromLeftToRight() {
         let animation = GeneratedAnimations.animation(for: .working)
-        XCTAssertEqual(animation.frames.count, 4)
-        XCTAssertEqual(animation.frames.map(\.durationMilliseconds), [180, 180, 180, 180])
+        let blue = RGBPixel(red: 0, green: 120, blue: 255)
 
-        for index in 1..<animation.frames.count {
-            XCTAssertEqual(animation.frames[index].pixels, rotateClockwise(animation.frames[index - 1].pixels))
+        XCTAssertTrue(animation.loops)
+        XCTAssertEqual(animation.frames.count, 10)
+        for (index, frame) in animation.frames.enumerated() {
+            XCTAssertEqual(frame.durationMilliseconds, 180)
+            for pixelIndex in frame.pixels.indices {
+                let column = pixelIndex % 5
+                let isLit = index < 5 ? column <= index : column >= index - 4
+                XCTAssertEqual(frame.pixels[pixelIndex], isLit ? blue : .off)
+            }
         }
     }
 
@@ -71,13 +77,5 @@ final class ProtocolTests: XCTestCase {
         }
         XCTAssertEqual(animation.frames[0].pixels[22], amber)
         XCTAssertEqual(animation.frames[1].pixels[22], .off)
-    }
-
-    private func rotateClockwise(_ pixels: [RGBPixel]) -> [RGBPixel] {
-        (0..<5).flatMap { row in
-            (0..<5).map { column in
-                pixels[(4 - column) * 5 + row]
-            }
-        }
     }
 }

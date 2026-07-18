@@ -51,12 +51,7 @@ public enum GeneratedAnimations {
             ["00000", "00C00", "0C0C0", "00C00", "00000"],
             ["00000", "00000", "00C00", "00000", "00000"]
         ], duration: 600),
-        .working: animation(rows: [
-            ["00C00", "C0C0C", "0CBC0", "0C0C0", "C000C"],
-            ["C00C0", "0CC00", "00BCC", "0CC00", "C00C0"],
-            ["C000C", "0C0C0", "0CBC0", "C0C0C", "00C00"],
-            ["0C00C", "00CC0", "CCB00", "00CC0", "0C00C"]
-        ], duration: 180),
+        .working: cumulativeColumnFill(color: "B", duration: 180),
         .needsInput: animation(rows: [
             ["00A00", "00A00", "00A00", "00000", "00A00"],
             ["00A00", "00A00", "00A00", "00000", "00000"]
@@ -96,6 +91,30 @@ public enum GeneratedAnimations {
             MatrixFrame(
                 pixels: (0..<MatrixFrame.pixelCount).map { index in
                     index / 5 >= removedRows ? palette[color] ?? .off : .off
+                },
+                durationMilliseconds: duration
+            )
+        }
+
+        return MatrixAnimation(
+            frames: fillingFrames + clearingFrames,
+            loops: true
+        )
+    }
+
+    private static func cumulativeColumnFill(color: Character, duration: Int) -> MatrixAnimation {
+        let fillingFrames = (1...5).map { visibleColumns in
+            MatrixFrame(
+                pixels: (0..<MatrixFrame.pixelCount).map { index in
+                    index % 5 < visibleColumns ? palette[color] ?? .off : .off
+                },
+                durationMilliseconds: duration
+            )
+        }
+        let clearingFrames = (1...5).map { removedColumns in
+            MatrixFrame(
+                pixels: (0..<MatrixFrame.pixelCount).map { index in
+                    index % 5 >= removedColumns ? palette[color] ?? .off : .off
                 },
                 durationMilliseconds: duration
             )
