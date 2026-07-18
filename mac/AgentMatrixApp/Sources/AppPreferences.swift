@@ -6,6 +6,7 @@ import Foundation
 final class AppPreferences: ObservableObject {
     private enum Keys {
         static let brightness = "matrixBrightness"
+        static let pauseDisplayWhileMacSleeps = "pauseDisplayWhileMacSleeps"
     }
 
     enum DisplayTarget: String, CaseIterable, Identifiable {
@@ -24,6 +25,12 @@ final class AppPreferences: ObservableObject {
     @Published var displayTarget: DisplayTarget = .automatic
     @Published var mirrorHorizontally = false
     @Published var rotation = 0
+    @Published var pauseDisplayWhileMacSleeps: Bool {
+        didSet {
+            guard persistsChanges else { return }
+            defaults.set(pauseDisplayWhileMacSleeps, forKey: Keys.pauseDisplayWhileMacSleeps)
+        }
+    }
     @Published var brightness: UInt8 {
         didSet {
             let clamped = min(max(brightness, 1), GeneratedAnimations.brightnessLimit)
@@ -42,6 +49,9 @@ final class AppPreferences: ObservableObject {
     init(defaults: UserDefaults = .standard, persistsChanges: Bool = true) {
         self.defaults = defaults
         self.persistsChanges = persistsChanges
+        pauseDisplayWhileMacSleeps = defaults.object(forKey: Keys.pauseDisplayWhileMacSleeps) == nil
+            ? true
+            : defaults.bool(forKey: Keys.pauseDisplayWhileMacSleeps)
         let savedBrightness = defaults.object(forKey: Keys.brightness) as? NSNumber
         brightness = UInt8(min(
             max(savedBrightness?.intValue ?? Int(GeneratedAnimations.defaultBrightness), 1),

@@ -23,6 +23,8 @@ public final class MatrixCoordinator: ObservableObject {
     private var eventTask: Task<Void, Never>?
     private var heartbeatTask: Task<Void, Never>?
     private var followsReducer = true
+    private var isManuallyPaused = false
+    private var isPausedForSystemSleep = false
 
     public init(
         transport: any MatrixTransport,
@@ -112,11 +114,24 @@ public final class MatrixCoordinator: ObservableObject {
     }
 
     public func setPaused(_ paused: Bool) async {
-        guard paused != isPaused else { return }
-        isPaused = paused
+        guard paused != isManuallyPaused else { return }
+        isManuallyPaused = paused
+        await applyPauseState()
+    }
+
+    public func setSystemSleepPaused(_ paused: Bool) async {
+        guard paused != isPausedForSystemSleep else { return }
+        isPausedForSystemSleep = paused
+        await applyPauseState()
+    }
+
+    private func applyPauseState() async {
+        let shouldPause = isManuallyPaused || isPausedForSystemSleep
+        guard shouldPause != isPaused else { return }
+        isPaused = shouldPause
         guard isConnected else { return }
 
-        if paused {
+        if shouldPause {
             await send(.brightness(sequence: nextSequence(), value: 0))
         } else {
             await send(.brightness(sequence: nextSequence(), value: brightness))

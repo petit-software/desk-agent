@@ -1,5 +1,6 @@
 import AgentMatrixCore
 import AgentMatrixSimulator
+import AppKit
 import Combine
 import Foundation
 
@@ -19,6 +20,9 @@ final class AppRuntime: ObservableObject {
     private var displayTargetCancellable: AnyCancellable?
     private var finishedDurationCancellable: AnyCancellable?
     private var brightnessCancellable: AnyCancellable?
+    private var sleepPreferenceCancellable: AnyCancellable?
+    private var systemWillSleepCancellable: AnyCancellable?
+    private var systemDidWakeCancellable: AnyCancellable?
 
     init() {
         let transport = SimulatorMatrixTransport()
@@ -59,6 +63,24 @@ final class AppRuntime: ObservableObject {
             .removeDuplicates()
             .sink { brightness in
                 Task { await coordinator.updateBrightness(brightness) }
+            }
+        sleepPreferenceCancellable = preferences.$pauseDisplayWhileMacSleeps
+            .removeDuplicates()
+            .sink { enabled in
+                guard !enabled else { return }
+                Task { await coordinator.setSystemSleepPaused(false) }
+            }
+        let workspaceNotifications = NSWorkspace.shared.notificationCenter
+        systemWillSleepCancellable = workspaceNotifications
+            .publisher(for: NSWorkspace.willSleepNotification)
+            .sink { _ in
+                guard preferences.pauseDisplayWhileMacSleeps else { return }
+                Task { await coordinator.setSystemSleepPaused(true) }
+            }
+        systemDidWakeCancellable = workspaceNotifications
+            .publisher(for: NSWorkspace.didWakeNotification)
+            .sink { _ in
+                Task { await coordinator.setSystemSleepPaused(false) }
             }
     }
 

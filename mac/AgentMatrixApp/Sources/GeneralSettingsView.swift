@@ -11,6 +11,7 @@ struct GeneralSettingsView: View {
             Section {
                 Toggle("Launch at login", isOn: $preferences.launchAtLogin)
                 Toggle("Open simulator automatically", isOn: $preferences.showSimulatorAutomatically)
+                Toggle("Pause display while Mac sleeps", isOn: $preferences.pauseDisplayWhileMacSleeps)
                 Toggle("Diagnostic logging", isOn: $preferences.diagnosticLogging)
             }
             Section("Finished State") {

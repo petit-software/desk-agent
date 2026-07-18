@@ -129,6 +129,40 @@ final class MatrixCoordinatorTests: XCTestCase {
         coordinator.stop()
     }
 
+    func testSystemSleepPauseResumesOnWake() async {
+        let transport = RecordingMatrixTransport()
+        let coordinator = MatrixCoordinator(transport: transport)
+
+        coordinator.start()
+        let connected = await waitUntil { coordinator.isConnected }
+        XCTAssertTrue(connected)
+
+        await coordinator.setSystemSleepPaused(true)
+        XCTAssertTrue(coordinator.isPaused)
+        let blankCommandCount = await transport.brightnessCommandCount(for: 0)
+        XCTAssertGreaterThanOrEqual(blankCommandCount, 1)
+
+        await coordinator.setSystemSleepPaused(false)
+        XCTAssertFalse(coordinator.isPaused)
+        let restoreCommandCount = await transport.brightnessCommandCount(
+            for: GeneratedAnimations.defaultBrightness
+        )
+        XCTAssertGreaterThanOrEqual(restoreCommandCount, 1)
+        coordinator.stop()
+    }
+
+    func testWakePreservesManualPause() async {
+        let coordinator = MatrixCoordinator(transport: RecordingMatrixTransport())
+
+        await coordinator.setSystemSleepPaused(true)
+        await coordinator.setPaused(true)
+        await coordinator.setSystemSleepPaused(false)
+
+        XCTAssertTrue(coordinator.isPaused)
+        await coordinator.setPaused(false)
+        XCTAssertFalse(coordinator.isPaused)
+    }
+
     private func waitUntil(
         timeout: Duration = .milliseconds(500),
         condition: @escaping @MainActor () async -> Bool

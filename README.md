@@ -18,6 +18,8 @@ The software-first vertical slice is implemented:
 - Connected-device protocol testing from the simulator.
 - Menu-bar display pause that blanks the LEDs while continuing to track Codex,
   then restores the latest state on resume.
+- Configurable sleep detection that pauses the display when the Mac sleeps and
+  resumes it on wake without overriding a manual pause.
 - Bundled RP2040 UF2 firmware with guarded BOOTSEL flashing and reconnect
   verification from the Connected Device page.
 - Session reducer with multi-session priority, deduplication, and stale-event
