@@ -10,7 +10,8 @@ terminal, read transcripts, or forward prompts and tool payloads.
 The software-first vertical slice is implemented:
 
 - Native SwiftUI menu-bar app, settings, and first-run onboarding.
-- Deterministic 5x5 matrix simulator with brightness and orientation controls.
+- Deterministic 5x5 matrix simulator with brightness and orientation controls;
+  brightness defaults to 25% and is restored across app launches.
 - Virtual firmware with handshake, sequence acknowledgements, heartbeats, and
   fault injection.
 - Automatic USB serial routing with simulator mirroring and fallback.

@@ -18,6 +18,7 @@ final class AppRuntime: ObservableObject {
     private var started = false
     private var displayTargetCancellable: AnyCancellable?
     private var finishedDurationCancellable: AnyCancellable?
+    private var brightnessCancellable: AnyCancellable?
 
     init() {
         let transport = SimulatorMatrixTransport()
@@ -39,7 +40,8 @@ final class AppRuntime: ObservableObject {
         )
         let coordinator = MatrixCoordinator(
             transport: matrixTransport,
-            reducer: AgentStateReducer(finishedDuration: preferences.finishedDuration)
+            reducer: AgentStateReducer(finishedDuration: preferences.finishedDuration),
+            initialBrightness: preferences.brightness
         )
         self.coordinator = coordinator
         integrationStatus = integrationInstaller.status()
@@ -52,6 +54,11 @@ final class AppRuntime: ObservableObject {
             .removeDuplicates()
             .sink { duration in
                 Task { await coordinator.setFinishedDuration(duration) }
+            }
+        brightnessCancellable = preferences.$brightness
+            .removeDuplicates()
+            .sink { brightness in
+                Task { await coordinator.updateBrightness(brightness) }
             }
     }
 

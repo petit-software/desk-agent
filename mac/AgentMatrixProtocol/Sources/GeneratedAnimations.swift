@@ -24,6 +24,7 @@ public struct MatrixAnimation: Sendable {
 
 public enum GeneratedAnimations {
     public static let brightnessLimit: UInt8 = 64
+    public static let defaultBrightness: UInt8 = 16
 
     public static func animation(for state: DisplayState) -> MatrixAnimation {
         animations[state] ?? animations[.disconnected]!

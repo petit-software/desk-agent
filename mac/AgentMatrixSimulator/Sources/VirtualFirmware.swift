@@ -22,7 +22,7 @@ public actor VirtualFirmware {
     public static let hardwareID = "virtual-rp2040-matrix"
 
     private var state: DisplayState = .booting
-    private var brightness: UInt8 = GeneratedAnimations.brightnessLimit
+    private var brightness: UInt8 = GeneratedAnimations.defaultBrightness
     private var lastHeartbeatAt: Date?
     private var heartbeatTTL: TimeInterval = 8
     private var lastSequence: UInt32 = 0
@@ -126,7 +126,7 @@ public actor VirtualFirmware {
 
     public func reset() {
         state = .booting
-        brightness = GeneratedAnimations.brightnessLimit
+        brightness = GeneratedAnimations.defaultBrightness
         lastHeartbeatAt = nil
         lastSequence = 0
         connected = true

@@ -2,6 +2,14 @@ import AgentMatrixProtocol
 import XCTest
 
 final class ProtocolTests: XCTestCase {
+    func testDefaultBrightnessIsTwentyFivePercent() {
+        XCTAssertEqual(GeneratedAnimations.defaultBrightness, 16)
+        XCTAssertEqual(
+            Int(GeneratedAnimations.defaultBrightness) * 100 / Int(GeneratedAnimations.brightnessLimit),
+            25
+        )
+    }
+
     func testCommandRoundTrip() {
         let command = MatrixCommand.state(sequence: 41, state: .needsInput, ttlMilliseconds: 8_000)
         XCTAssertEqual(command.wireValue, "AM1 STATE 41 NEEDS_INPUT 8000")

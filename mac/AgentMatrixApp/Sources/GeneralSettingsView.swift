@@ -33,7 +33,7 @@ struct GeneralSettingsView: View {
 
 #Preview("General Settings") {
     GeneralSettingsView(
-        preferences: AppPreferences(),
+        preferences: AppPreferences(persistsChanges: false),
         coordinator: MatrixCoordinator(transport: SimulatorMatrixTransport())
     )
     .frame(width: 520, height: 380)

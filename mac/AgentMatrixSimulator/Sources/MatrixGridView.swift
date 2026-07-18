@@ -10,7 +10,7 @@ public struct MatrixGridView: View {
 
     public init(
         frame: MatrixFrame,
-        brightness: UInt8 = GeneratedAnimations.brightnessLimit,
+        brightness: UInt8 = GeneratedAnimations.defaultBrightness,
         rotation: Angle = .zero,
         mirrored: Bool = false,
         showsBloom: Bool = true

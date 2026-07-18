@@ -1,6 +1,7 @@
 {
   "version": 1,
   "brightnessLimit": 64,
+  "defaultBrightness": 16,
   "palette": {
     "0": [0, 0, 0],
     "d": [24, 24, 24],

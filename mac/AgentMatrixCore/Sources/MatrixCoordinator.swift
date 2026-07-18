@@ -13,7 +13,7 @@ public final class MatrixCoordinator: ObservableObject {
     @Published public private(set) var hardwareID = "-"
     @Published public private(set) var lastEvent: NormalizedAgentEvent?
     @Published public private(set) var isPaused = false
-    @Published public var brightness: UInt8 = GeneratedAnimations.brightnessLimit
+    @Published public var brightness: UInt8 = GeneratedAnimations.defaultBrightness
 
     public let reducer: AgentStateReducer
     private let transport: any MatrixTransport
@@ -27,11 +27,13 @@ public final class MatrixCoordinator: ObservableObject {
     public init(
         transport: any MatrixTransport,
         reducer: AgentStateReducer = AgentStateReducer(),
+        initialBrightness: UInt8 = GeneratedAnimations.defaultBrightness,
         heartbeatInterval: Duration = .seconds(2),
         stateTTLMilliseconds: UInt32 = 8_000
     ) {
         self.transport = transport
         self.reducer = reducer
+        brightness = min(max(initialBrightness, 1), GeneratedAnimations.brightnessLimit)
         self.heartbeatInterval = heartbeatInterval
         self.stateTTLMilliseconds = stateTTLMilliseconds
     }

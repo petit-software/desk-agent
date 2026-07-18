@@ -26,7 +26,7 @@ final class VirtualFirmwareTests: XCTestCase {
     func testBrightnessIsClampedByFirmware() async {
         let firmware = VirtualFirmware()
         var snapshot = await firmware.snapshot()
-        XCTAssertEqual(snapshot.brightness, GeneratedAnimations.brightnessLimit)
+        XCTAssertEqual(snapshot.brightness, GeneratedAnimations.defaultBrightness)
 
         _ = await firmware.receive(.hello)
         _ = await firmware.receive(.brightness(sequence: 1, value: 255))

@@ -21,14 +21,14 @@ struct DisplaySettingsView: View {
                 LabeledContent("Brightness") {
                     Slider(
                         value: Binding(
-                            get: { Double(coordinator.brightness) },
-                            set: { value in Task { await coordinator.updateBrightness(UInt8(value)) } }
+                            get: { Double(preferences.brightness) },
+                            set: { preferences.brightness = UInt8($0) }
                         ),
                         in: 1...64,
                         step: 1
                     )
                     .frame(width: 220)
-                    Text("\(Int(coordinator.brightness) * 100 / Int(GeneratedAnimations.brightnessLimit))%")
+                    Text("\(Int(preferences.brightness) * 100 / Int(GeneratedAnimations.brightnessLimit))%")
                         .monospacedDigit()
                         .frame(width: 40, alignment: .trailing)
                 }
@@ -60,7 +60,7 @@ struct DisplaySettingsView: View {
 
 #Preview("Display Settings") {
     DisplaySettingsView(
-        preferences: AppPreferences(),
+        preferences: AppPreferences(persistsChanges: false),
         coordinator: MatrixCoordinator(transport: SimulatorMatrixTransport())
     )
     .frame(width: 520, height: 420)

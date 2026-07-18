@@ -10,6 +10,7 @@
 #define MATRIX_PIN 16
 #define MATRIX_PIXELS 25
 #define BRIGHTNESS_LIMIT 64
+#define DEFAULT_BRIGHTNESS 16
 #define COMMAND_CAPACITY 128
 #define HEARTBEAT_TIMEOUT_MS 8000
 
@@ -77,7 +78,7 @@ static PIO matrix_pio = pio0;
 static uint matrix_state_machine;
 static display_state_t display_state = STATE_BOOTING;
 static display_state_t state_before_identify = STATE_IDLE;
-static uint8_t brightness = BRIGHTNESS_LIMIT;
+static uint8_t brightness = DEFAULT_BRIGHTNESS;
 static uint32_t state_started_ms;
 static uint32_t state_deadline_ms;
 static uint32_t last_heartbeat_ms;

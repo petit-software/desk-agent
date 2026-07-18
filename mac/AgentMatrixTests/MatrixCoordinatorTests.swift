@@ -5,6 +5,22 @@ import XCTest
 
 @MainActor
 final class MatrixCoordinatorTests: XCTestCase {
+    func testInitialBrightnessIsSentAfterConnecting() async {
+        let transport = RecordingMatrixTransport()
+        let coordinator = MatrixCoordinator(
+            transport: transport,
+            initialBrightness: 32
+        )
+
+        XCTAssertEqual(coordinator.brightness, 32)
+        coordinator.start()
+        let reachedCondition = await waitUntil {
+            await transport.brightnessCommandCount(for: 32) >= 1
+        }
+        XCTAssertTrue(reachedCondition)
+        coordinator.stop()
+    }
+
     func testHeartbeatRenewsWorkingStateLease() async {
         let transport = RecordingMatrixTransport()
         let coordinator = MatrixCoordinator(
@@ -107,7 +123,7 @@ final class MatrixCoordinatorTests: XCTestCase {
         }
         XCTAssertTrue(reachedCondition)
         let restoredBrightness = await transport.brightnessCommandCount(
-            for: GeneratedAnimations.brightnessLimit
+            for: GeneratedAnimations.defaultBrightness
         )
         XCTAssertGreaterThanOrEqual(restoredBrightness, 1)
         coordinator.stop()
